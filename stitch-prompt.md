@@ -9,14 +9,15 @@ Primary goals:
 - Keep the page beautiful, premium, and easy to scan.
 
 Overall design direction:
-- Sophisticated, sun-soaked, romantic, and editorial.
+- Whimsical, romantic, sun-soaked, and editorial.
 - Luxury destination wedding energy, not a default wedding template.
 - Avoid cliché rustic wedding styling, generic blush florals, scrapbook design, or overly soft template aesthetics.
 - The site should feel elevated and intentional, with strong hierarchy and polished spacing.
-- Think beach-resort elegance mixed with modern editorial layout.
+- Think whimsical beach-resort elegance mixed with modern editorial layout.
 
 Color and visual mood:
-- Warm ivory, sand, ocean teal, sea-glass blue, sunset coral, and restrained soft gold.
+- Light blue, lavender, and peach should drive the visual palette.
+- Use very soft supporting neutrals like airy ivory, petal pink, or pale lilac-tinted whites if needed.
 - Bright and airy, not dark.
 - Use atmospheric backgrounds, gradients, subtle texture, and shaped visual layers rather than flat white sections.
 
