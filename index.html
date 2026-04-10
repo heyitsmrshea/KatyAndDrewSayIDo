@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Katy &amp; Drew Say I Do | Cancun Wedding</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#e5e2da",
+              primary: "#006567",
+              "primary-fixed-dim": "#86d3d5",
+              "on-error-container": "#93000a",
+              "on-primary": "#ffffff",
+              "surface-dim": "#dddad1",
+              "primary-container": "#2b7e80",
+              "secondary-container": "#fd876f",
+              "tertiary-fixed": "#ffe088",
+              "on-surface": "#1c1c17",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed-variant": "#004f51",
+              "tertiary-container": "#cca830",
+              "surface-bright": "#fcf9f0",
+              "secondary-fixed-dim": "#ffb4a5",
+              "surface-container-high": "#ebe8df",
+              "surface-container-highest": "#e5e2da",
+              tertiary: "#735c00",
+              "secondary-fixed": "#ffdad3",
+              "on-tertiary": "#ffffff",
+              "inverse-surface": "#31312b",
+              "inverse-primary": "#86d3d5",
+              "surface-container": "#f1eee5",
+              "on-surface-variant": "#3e4949",
+              surface: "#fcf9f0",
+              "on-tertiary-fixed-variant": "#574500",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#e9c349",
+              "on-tertiary-fixed": "#241a00",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f6f3ea",
+              "on-tertiary-container": "#4f3e00",
+              "on-primary-fixed": "#002021",
+              "inverse-on-surface": "#f4f1e8",
+              "on-primary-container": "#e3ffff",
+              "on-secondary-fixed": "#3e0500",
+              "outline-variant": "#bdc9c8",
+              "on-background": "#1c1c17",
+              "surface-tint": "#06696b",
+              outline: "#6e7979",
+              "on-secondary-fixed-variant": "#802918",
+              "on-secondary-container": "#732010",
+              background: "#fcf9f0",
+              "on-error": "#ffffff",
+              secondary: "#9f402d",
+              error: "#ba1a1a",
+              "primary-fixed": "#a2f0f2",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+      }
+
+      .editorial-gradient {
+        background: linear-gradient(135deg, #006567 0%, #2b7e80 100%);
+      }
+
+      .glass-nav {
+        background: rgba(252, 249, 240, 0.7);
+        backdrop-filter: blur(12px);
+      }
+
+      .glass-nav::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+
+      .page-loaded .glass-nav::before {
+        animation: nav-sheen 1.8s ease 0.65s forwards;
+      }
+
+      .editorial-gradient {
+        background-size: 180% 180%;
+        animation: editorial-pan 12s ease infinite;
+      }
+
+      .animated-shell {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .animated-shell::before,
+      .animated-shell::after {
+        content: "";
+        position: fixed;
+        inset: auto;
+        z-index: -1;
+        border-radius: 999px;
+        pointer-events: none;
+        filter: blur(70px);
+        opacity: 0.42;
+      }
+
+      .animated-shell::before {
+        top: 4rem;
+        left: -6rem;
+        width: 18rem;
+        height: 18rem;
+        background: rgba(134, 211, 213, 0.6);
+        animation: drift-blob-a 16s ease-in-out infinite;
+      }
+
+      .animated-shell::after {
+        right: -7rem;
+        bottom: 8rem;
+        width: 24rem;
+        height: 24rem;
+        background: rgba(253, 135, 111, 0.32);
+        animation: drift-blob-b 20s ease-in-out infinite;
+      }
+
+      .hero-mesh {
+        position: absolute;
+        inset: -10%;
+        background:
+          radial-gradient(circle at 22% 24%, rgba(134, 211, 213, 0.24), transparent 18rem),
+          radial-gradient(circle at 78% 20%, rgba(253, 135, 111, 0.18), transparent 16rem),
+          radial-gradient(circle at 50% 82%, rgba(204, 168, 48, 0.12), transparent 18rem);
+        animation: mesh-drift 18s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .hero-grid {
+        background-image:
+          linear-gradient(rgba(0, 101, 103, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 101, 103, 0.05) 1px, transparent 1px);
+        background-size: 100% 100%, 44px 44px;
+        mask-image: radial-gradient(circle at center, black 48%, transparent 92%);
+        opacity: 0.5;
+      }
+
+      .floating-orb {
+        position: absolute;
+        border-radius: 999px;
+        pointer-events: none;
+        filter: blur(4px);
+        mix-blend-mode: multiply;
+      }
+
+      .floating-orb--a {
+        top: 18%;
+        left: 6%;
+        width: 7rem;
+        height: 7rem;
+        background: radial-gradient(circle, rgba(134, 211, 213, 0.5), rgba(134, 211, 213, 0));
+        animation: float-orb-a 8s ease-in-out infinite;
+      }
+
+      .floating-orb--b {
+        right: 12%;
+        bottom: 20%;
+        width: 10rem;
+        height: 10rem;
+        background: radial-gradient(circle, rgba(255, 218, 211, 0.55), rgba(255, 218, 211, 0));
+        animation: float-orb-b 11s ease-in-out infinite;
+      }
+
+      .shine-button {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shine-button::after {
+        content: "";
+        position: absolute;
+        inset: -120% auto -120% -40%;
+        width: 40%;
+        transform: rotate(18deg) translateX(-220%);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+      }
+
+      .shine-button:hover::after,
+      .shine-button:focus-visible::after {
+        animation: button-sheen 0.95s ease;
+      }
+
+      .parallax-card {
+        transform-style: preserve-3d;
+        will-change: transform;
+        transition: transform 220ms ease;
+      }
+
+      .floating-frame {
+        animation: frame-float 8s ease-in-out infinite;
+      }
+
+      .floating-frame--slow {
+        animation-duration: 10.5s;
+      }
+
+      .pulse-ring {
+        position: relative;
+      }
+
+      .pulse-ring::after {
+        content: "";
+        position: absolute;
+        inset: -0.75rem;
+        border-radius: 1.1rem;
+        border: 1px solid rgba(134, 211, 213, 0.5);
+        opacity: 0;
+        animation: pulse-ring 3.2s ease-out infinite;
+      }
+
+      .timeline-glow {
+        position: relative;
+      }
+
+      .timeline-glow::before {
+        content: "";
+        position: absolute;
+        left: -1.25rem;
+        top: 1rem;
+        bottom: 1rem;
+        width: 2px;
+        background: linear-gradient(180deg, rgba(253, 135, 111, 0), rgba(253, 135, 111, 0.8), rgba(255, 255, 255, 0));
+        opacity: 0;
+        transform: scaleY(0.35);
+        transform-origin: top;
+        transition: opacity 0.5s ease, transform 0.8s ease;
+      }
+
+      .is-visible.timeline-glow::before {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+
+      .sunday-spotlight {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sunday-spotlight::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1), transparent 18rem),
+          radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.12), transparent 18rem);
+        animation: spotlight-drift 14s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .sunday-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sunday-card::after {
+        content: "";
+        position: absolute;
+        inset: auto -20% -30% auto;
+        width: 18rem;
+        height: 18rem;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 65%);
+        animation: halo-spin 18s linear infinite;
+      }
+
+      [data-load] {
+        opacity: 0;
+        transform: translateY(26px) scale(0.985);
+        transition:
+          opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        transition-delay: var(--delay, 0ms);
+      }
+
+      .page-loaded [data-load] {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(48px);
+        transition:
+          opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+        transition-delay: var(--reveal-delay, 0ms);
+      }
+
+      [data-reveal="left"] {
+        transform: translateX(-56px);
+      }
+
+      [data-reveal="right"] {
+        transform: translateX(56px);
+      }
+
+      [data-reveal="zoom"] {
+        transform: translateY(30px) scale(0.92);
+      }
+
+      .is-visible[data-reveal] {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      .hover-lift {
+        transition:
+          transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 420ms ease,
+          border-color 420ms ease;
+      }
+
+      .hover-lift:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 26px 50px rgba(28, 28, 23, 0.12);
+      }
+
+      .event-chip {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .event-chip::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 3px;
+        background: linear-gradient(90deg, rgba(0, 101, 103, 0), rgba(0, 101, 103, 0.8), rgba(0, 101, 103, 0));
+        transform: scaleX(0.35);
+        opacity: 0;
+        transition: transform 0.45s ease, opacity 0.45s ease;
+      }
+
+      .hover-lift:hover.event-chip::after {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+
+      .form-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .form-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(120deg, rgba(134, 211, 213, 0.12), transparent 28%),
+          linear-gradient(300deg, rgba(253, 135, 111, 0.08), transparent 26%);
+        pointer-events: none;
+      }
+
+      .attendee-card {
+        transition:
+          transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 360ms ease,
+          background-color 360ms ease;
+      }
+
+      .attendee-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 38px rgba(28, 28, 23, 0.08);
+      }
+
+      .success-pop {
+        animation: success-pop 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .ambient-line {
+        position: absolute;
+        inset: auto;
+        height: 1px;
+        width: min(22rem, 55vw);
+        background: linear-gradient(90deg, rgba(0, 101, 103, 0), rgba(0, 101, 103, 0.45), rgba(0, 101, 103, 0));
+        opacity: 0.45;
+        pointer-events: none;
+      }
+
+      .ambient-line--a {
+        top: 11rem;
+        right: -3rem;
+        animation: sweep-line 9s ease-in-out infinite;
+      }
+
+      .ambient-line--b {
+        bottom: 9rem;
+        left: -2rem;
+        animation: sweep-line 11s ease-in-out infinite reverse;
+      }
+
+      @keyframes editorial-pan {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes nav-sheen {
+        0% {
+          opacity: 0;
+          transform: translateX(-100%);
+        }
+        20% {
+          opacity: 0.65;
+        }
+        100% {
+          opacity: 0;
+          transform: translateX(240%);
+        }
+      }
+
+      @keyframes drift-blob-a {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(4rem, 2rem, 0) scale(1.16);
+        }
+      }
+
+      @keyframes drift-blob-b {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(-3rem, -4rem, 0) scale(0.92);
+        }
+      }
+
+      @keyframes mesh-drift {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(0, -1.5rem, 0) scale(1.03);
+        }
+      }
+
+      @keyframes float-orb-a {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(1rem, -1.2rem, 0);
+        }
+      }
+
+      @keyframes float-orb-b {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(-1.2rem, 1rem, 0) scale(1.08);
+        }
+      }
+
+      @keyframes frame-float {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) rotate(2deg);
+        }
+        50% {
+          transform: translate3d(0, -1rem, 0) rotate(0.5deg);
+        }
+      }
+
+      @keyframes pulse-ring {
+        0% {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        25% {
+          opacity: 0.45;
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.08);
+        }
+      }
+
+      @keyframes halo-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spotlight-drift {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(0, -1.5rem, 0);
+        }
+      }
+
+      @keyframes button-sheen {
+        from {
+          transform: rotate(18deg) translateX(-220%);
+        }
+        to {
+          transform: rotate(18deg) translateX(520%);
+        }
+      }
+
+      @keyframes sweep-line {
+        0%,
+        100% {
+          transform: translateX(0);
+          opacity: 0.15;
+        }
+        50% {
+          transform: translateX(2rem);
+          opacity: 0.55;
+        }
+      }
+
+      @keyframes success-pop {
+        0% {
+          opacity: 0;
+          transform: translateY(18px) scale(0.96);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition-duration: 0ms !important;
+          transition-delay: 0ms !important;
+        }
+
+        [data-load],
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="animated-shell bg-surface text-on-surface font-body selection:bg-secondary-fixed selection:text-secondary">
+    <nav class="fixed top-0 z-50 w-full glass-nav shadow-[0_20px_40px_rgba(28,28,23,0.06)]" data-load style="--delay: 100ms">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-8 py-6">
+        <span class="font-headline text-2xl italic text-primary">Katy &amp; Drew</span>
+        <div class="hidden items-center gap-10 md:flex">
+          <a
+            class="border-b-2 border-secondary pb-1 font-headline text-lg tracking-wide text-primary transition-colors duration-300"
+            href="#itinerary"
+            >Itinerary</a
+          >
+          <a
+            class="font-headline text-lg tracking-wide text-tertiary opacity-80 transition-colors duration-300 hover:text-secondary"
+            href="#rsvp"
+            >RSVP</a
+          >
+          <a
+            class="font-headline text-lg tracking-wide text-tertiary opacity-80 transition-colors duration-300 hover:text-secondary"
+            href="#travel"
+            >Travel</a
+          >
+          <a
+            class="font-headline text-lg tracking-wide text-tertiary opacity-80 transition-colors duration-300 hover:text-secondary"
+            href="#faq"
+            >FAQ</a
+          >
+        </div>
+        <a
+          class="editorial-gradient hidden rounded-full px-8 py-3 font-label text-sm uppercase tracking-widest text-on-primary transition-transform duration-200 hover:scale-95 md:block"
+          href="#rsvp"
+          >RSVP Now</a
+        >
+        <button class="text-primary md:hidden" id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+      <div class="hidden border-t border-primary/10 bg-surface px-8 py-5 md:hidden" id="mobile-menu">
+        <div class="flex flex-col gap-4">
+          <a class="font-headline text-lg text-primary" href="#itinerary">Itinerary</a>
+          <a class="font-headline text-lg text-tertiary" href="#rsvp">RSVP</a>
+          <a class="font-headline text-lg text-tertiary" href="#travel">Travel</a>
+          <a class="font-headline text-lg text-tertiary" href="#faq">FAQ</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="relative flex min-h-screen items-center overflow-hidden pt-20" id="top">
+      <div class="hero-mesh"></div>
+      <div class="hero-grid absolute inset-0"></div>
+      <div class="floating-orb floating-orb--a"></div>
+      <div class="floating-orb floating-orb--b"></div>
+      <div class="ambient-line ambient-line--a"></div>
+      <div class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-8 md:grid-cols-12">
+        <div class="z-10 md:col-span-6">
+          <span class="mb-4 block font-label uppercase tracking-[0.3em] text-secondary" data-load style="--delay: 180ms">Destination Cancun</span>
+          <h1 class="mb-6 font-headline text-6xl leading-tight md:text-8xl" data-load style="--delay: 280ms">Katy &amp; Drew Say I Do</h1>
+          <p class="mb-10 max-w-lg font-headline text-2xl italic text-on-surface-variant" data-load style="--delay: 380ms">
+            Your Guide to our Cancun Wedding Week
+          </p>
+          <div class="flex flex-col gap-6 sm:flex-row" data-load style="--delay: 500ms">
+            <a
+              class="editorial-gradient shine-button rounded-full px-10 py-5 text-center font-label text-sm uppercase tracking-widest text-on-primary shadow-lg transition-all hover:shadow-xl active:scale-95"
+              href="#itinerary"
+              >View the Itinerary</a
+            >
+            <a
+              class="shine-button rounded-full bg-surface-container-high px-10 py-5 text-center font-label text-sm uppercase tracking-widest text-primary transition-colors hover:bg-surface-container-highest"
+              href="#travel"
+              >Travel Details</a
+            >
+          </div>
+        </div>
+        <div class="relative h-[600px] md:col-span-6 md:h-[800px]">
+          <div class="absolute inset-0 translate-x-4 rotate-2 overflow-hidden rounded-xl shadow-2xl" data-load style="--delay: 320ms">
+            <img
+              class="h-full w-full object-cover"
+              data-alt="romantic couple walking along a turquoise beach in cancun at sunrise with soft golden light and gentle waves"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUSKMwOEK0o1TJe5yyZNBX-A2eji56ROXpHjTFp1YArzn0d4Jf5jRyLX6hasniyYNq6sVBk_DFUeByRmkCp-CRfsRPyPhdCuu99RuB-2H94fDADqj3I_IYQ8-UzkWF2lOiagsksukixil7_0bppFsYVcTRMQz6m5DqknWKLXOzEQmLlVRveYjX3DTFH_U26FX-lcOMHp4cCyDgZlPdp4h0hNPV1DS-jqwCJM8J00PkKDIMZx4zCZ8DaYzAoCSDh03ZeORQKM2tDDu"
+            />
+          </div>
+          <div class="absolute top-12 -left-8 hidden h-64 w-48 -rotate-6 overflow-hidden rounded-xl border-4 border-surface shadow-xl md:block" data-load style="--delay: 520ms">
+            <img
+              class="h-full w-full object-cover"
+              data-alt="detailed close up of elegant white wedding flowers and green tropical leaves with a sea breeze aesthetic"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLh92RBlkFUlhfbdULed6MWUxv-RGQvUaj8iFtndoVFOUPY7LHT1vJAe5u3bXydxzldeDB2GWfBujwoMWNzwmR4GUn82serVs398O6fcOXNTGHz-AEuUAfqK-qCMbgPGEHUTcWg06K35ccEaF0RWWQpXkjjFzVNqEqoZG0jL7h44HdOfI-Aa0QsRqbYrnzXB1tD1DwEEYhyZl1OL_GomCJ3oOECi_KFPKhNYqMXNUyWuoEkh_G9jsQhpcDrvv4VZBhEc83NKaC-fHV"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-10 left-1/2 hidden -translate-x-1/2 md:block animate-bounce">
+        <span class="material-symbols-outlined text-4xl text-primary">keyboard_double_arrow_down</span>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-low py-32" data-reveal="zoom">
+      <div class="mx-auto max-w-7xl px-8">
+        <div class="mb-20 text-center">
+          <h2 class="mb-4 font-headline text-4xl md:text-5xl">A Week of Celebration</h2>
+          <p class="mx-auto mb-6 max-w-2xl text-on-surface-variant">
+            We will be together from Tuesday through Sunday, with Sunday as the wedding day.
+          </p>
+          <div class="mx-auto h-1 w-24 bg-secondary"></div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-6">
+          <div class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 0ms">
+            <span class="mb-2 font-label text-xs uppercase tracking-tighter text-tertiary">Tue</span>
+            <span class="font-headline text-lg">Arrivals</span>
+          </div>
+          <div class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 70ms">
+            <span class="mb-2 font-label text-xs uppercase tracking-tighter text-tertiary">Wed</span>
+            <span class="font-headline text-lg">Sunset Sail</span>
+          </div>
+          <div class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 140ms">
+            <span class="mb-2 font-label text-xs uppercase tracking-tighter text-tertiary">Thu</span>
+            <span class="font-headline text-lg">Tulum</span>
+          </div>
+          <div class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 210ms">
+            <span class="mb-2 font-label text-xs uppercase tracking-tighter text-tertiary">Fri</span>
+            <span class="font-headline text-lg">Bonfire</span>
+          </div>
+          <div class="event-chip hover-lift flex flex-col items-center rounded-xl border-2 border-primary bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 280ms">
+            <span class="mb-2 font-label text-xs uppercase tracking-tighter text-primary">Sat</span>
+            <span class="font-headline text-lg">Welcome</span>
+          </div>
+          <div class="event-chip hover-lift editorial-gradient pulse-ring flex flex-col items-center rounded-xl p-6 text-center text-on-primary" data-reveal="zoom" style="--reveal-delay: 350ms">
+            <span class="mb-2 font-label text-xs uppercase tracking-tighter opacity-80">Sun</span>
+            <span class="font-headline text-lg">Wedding</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative overflow-hidden py-32" id="itinerary">
+      <div class="ambient-line ambient-line--b"></div>
+      <div class="mx-auto max-w-5xl px-8">
+        <div class="mb-24 flex flex-col items-end justify-between gap-8 md:flex-row" data-reveal="zoom">
+          <div>
+            <span class="mb-4 block font-label uppercase tracking-[0.2em] text-primary">The Schedule</span>
+            <h2 class="font-headline text-5xl md:text-6xl">The Itinerary</h2>
+          </div>
+          <p class="max-w-sm text-right font-body text-on-surface-variant">
+            Join us for a week of sun, sea, and celebrations as we lead up to our big day.
+          </p>
+        </div>
+
+        <div class="timeline-glow group mb-16 grid grid-cols-1 items-center gap-12 md:grid-cols-12" data-reveal="left">
+          <div class="md:col-span-4">
+            <div class="parallax-card relative aspect-square overflow-hidden rounded-xl shadow-[0_18px_40px_rgba(28,28,23,0.08)]" data-parallax>
+              <img
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="luxury cancun resort pool area with white cabanas and palm trees overlooking the turquoise ocean"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8yVQXGTsArwIksmmQJLshXhNNNRoLsc9qB87qVfoEedhtDWESOJBvFKFzbZasH3ljhX7mvoFq7pTto-7c7KM56Ei-MiAJN8P-s4qk8pTah9Rr71uvlxRkGxje0usZCXkkgYNc1LtdMA8eZXjeHPvF8xABCy_isut3VBRKBI5zyyGi8OhftI7bNwa5AO9oK1itm_WS00ASgjKYIU-gzYLcojK6Poj7Mx3ROK3H5uM7XdprN3L7o857JIwhb46Vpi3_9G7tsgjTtLIo"
+              />
+              <div class="absolute inset-0 bg-primary/20 transition-colors duration-500 group-hover:bg-primary/0"></div>
+            </div>
+          </div>
+          <div class="border-l-2 border-surface-container-high py-4 pl-12 md:col-span-8">
+            <span class="font-label text-sm font-bold uppercase tracking-widest text-secondary">Tuesday, June 10</span>
+            <h3 class="mb-4 mt-2 font-headline text-3xl">Arrivals &amp; Check-in</h3>
+            <p class="mb-6 leading-relaxed text-on-surface-variant">
+              Touch down in paradise. Most guests will be arriving today. Settle into the resort, grab a margarita,
+              and meet us by the Infinity Pool for a casual hello.
+            </p>
+            <div class="flex items-center gap-4 font-label text-xs uppercase tracking-widest text-primary">
+              <span class="material-symbols-outlined">hotel</span> Resort Main Lobby
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-glow group mb-16 grid grid-cols-1 items-center gap-12 md:grid-cols-12" data-reveal="right">
+          <div class="order-2 border-r-2 border-surface-container-high py-4 pr-12 text-right md:order-1 md:col-span-8">
+            <span class="font-label text-sm font-bold uppercase tracking-widest text-secondary">Wednesday, June 11</span>
+            <h3 class="mb-4 mt-2 font-headline text-3xl">Welcome Sunset Sail</h3>
+            <p class="mb-6 leading-relaxed text-on-surface-variant">
+              Set sail on a private catamaran as we toast to the week ahead. Enjoy cocktails, appetizers, and the
+              breathtaking Cancun sunset from the water.
+            </p>
+            <div class="flex items-center justify-end gap-4 font-label text-xs uppercase tracking-widest text-primary">
+              4:00 PM — Resort Marina <span class="material-symbols-outlined">sailing</span>
+            </div>
+          </div>
+          <div class="order-1 md:order-2 md:col-span-4">
+            <div class="parallax-card relative aspect-square overflow-hidden rounded-xl shadow-[0_18px_40px_rgba(28,28,23,0.08)]" data-parallax>
+              <img
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="large white luxury catamaran sailing on deep blue caribbean waters at sunset with golden orange sky"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbFejED-5DyLo5WfWdYLUvP2Cw1jHSSQeYR4rP7fG_iOwjn1w_NNKTvJ_zR5XevyBN4rdgqEjYMVGrpoedX9ftJ6IwfK9q2SYX9-Uu_cDLoHZ3Evge950ypxcFGZe9aDZIo4dEfJ-LG-_jpTiJI-GBV2Z5NW1mScCsJsKQs2zRWNpISWv0yv01_BPnZEQe0RrpI8itlCQY15PB9u5BfuVMO-NuA1crZ3BtojTGsfaa5XIhAxZyuFVxD0thb922jgMfZe1B82ipw9xY"
+              />
+              <div class="absolute inset-0 bg-primary/20 transition-colors duration-500 group-hover:bg-primary/0"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2">
+          <div class="hover-lift group relative rounded-xl bg-surface-container-low p-10 shadow-[0_16px_35px_rgba(28,28,23,0.05)]" data-reveal="left">
+            <span class="mb-4 block font-label text-xs font-bold uppercase tracking-widest text-secondary">Thursday, June 12</span>
+            <h3 class="mb-4 font-headline text-2xl italic">Tulum Ruins Excursion</h3>
+            <p class="mb-6 text-sm text-on-surface-variant">
+              An optional morning trip to explore the ancient Mayan ruins overlooking the sea. Transportation provided.
+            </p>
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Optional Activity</span>
+          </div>
+          <div class="hover-lift group relative rounded-xl bg-surface-container-low p-10 shadow-[0_16px_35px_rgba(28,28,23,0.05)]" data-reveal="right">
+            <span class="mb-4 block font-label text-xs font-bold uppercase tracking-widest text-secondary">Friday, June 13</span>
+            <h3 class="mb-4 font-headline text-2xl italic">Beachside Bonfire</h3>
+            <p class="mb-6 text-sm text-on-surface-variant">
+              Kick off your shoes for a night of s'mores, music, and fire dancers on the North Beach sands.
+            </p>
+            <div class="flex items-center gap-2 font-label text-xs uppercase tracking-widest text-primary">
+              <span class="material-symbols-outlined">local_fire_department</span> 8:00 PM
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-glow group mb-32 grid grid-cols-1 items-center gap-12 md:grid-cols-12" data-reveal="left">
+          <div class="md:col-span-4">
+            <div class="parallax-card relative aspect-[3/4] overflow-hidden rounded-xl shadow-xl" data-parallax>
+              <img
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="elegant long wooden dining table set for rehearsal dinner with white linens and ocean view at twilight"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGnSuRzOzrU2PniQbw8voPT71UzaqAcwRdKaL6YnYu7WCn3K-9d7un2sXh6kjYITQl7ZoYbYJA8Anv2fgBf9KWlK5dqAEpthAHPJk0kpuSXmh-RbdwN7f_DYjbvcvqigzrnQiaURpQ7TEtK3x9r3hKE9ciJcIQdJaWD7tFa_RDL4u5ghNXmRsDLnvKiCFbA9j0xMXysY3101M6RS8FNl_G3e-cOUIzIo02Vezb5Z-lX20cW04MMKct8JIsqKvMs4UXTwn1rAnM6Y6-"
+              />
+            </div>
+          </div>
+          <div class="border-l-2 border-surface-container-high py-4 pl-12 md:col-span-8">
+            <span class="font-label text-sm font-bold uppercase tracking-widest text-secondary">Saturday, June 14</span>
+            <h3 class="mb-4 mt-2 font-headline text-3xl">Rehearsal &amp; Welcome Party</h3>
+            <div class="mt-8 space-y-8">
+              <div>
+                <span class="font-label text-xs uppercase tracking-widest text-primary">6:00 PM — Private Dinner</span>
+                <p class="mt-1 text-sm text-on-surface-variant">
+                  For wedding party and family. An intimate evening at the Terrace Bistro.
+                </p>
+              </div>
+              <div class="rounded-xl bg-surface-container p-6">
+                <span class="font-label text-xs uppercase tracking-widest text-primary">8:30 PM — Welcome Drinks</span>
+                <p class="mt-1 text-sm text-on-surface-variant">
+                  Open to all guests. Join us for signature cocktails and music at the Sky Bar to officially start the
+                  weekend.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative py-0 sunday-spotlight">
+      <div class="editorial-gradient py-32 text-on-primary md:py-48">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 px-8 md:grid-cols-2">
+          <div class="relative" data-reveal="left">
+            <div class="parallax-card sunday-card relative z-10 aspect-[4/5] overflow-hidden rounded-xl shadow-2xl" data-parallax>
+              <img
+                class="h-full w-full object-cover"
+                data-alt="spectacular beachfront wedding ceremony setup with white chairs and a floral arch against the bright blue cancun sea"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMO8ApJg7XhG80V9dRgl2Oh5ApmIQjR3LjIMzFZ6yxd3P4RrhK_i-dfSgou0WEt4BSdUExyz_lN68K0YqGFAqRC2vZBluKk0MmIaHMQKyNP6IPnqm-FFfVEHW4aGycdjN7zMcFaABFTcIejxVk5AROxvfdd8yoWHVXHAyojJZKWeUHGHN0oGo1lCGgtqO9h_6zHuzKiK4OyvW6X5Lw6fmM1CR7qjeR74vZvDwokxz0nQmMSftNAsWuMMV4B8xlzjRMnWGixuAdYc7P"
+              />
+            </div>
+            <div class="absolute -bottom-10 -right-10 h-64 w-64 rounded-full bg-secondary-container/30 blur-3xl"></div>
+          </div>
+          <div data-reveal="right">
+            <span class="mb-6 block font-label uppercase tracking-[0.4em] text-secondary-fixed">The Main Event</span>
+            <h2 class="mb-8 font-headline text-6xl md:text-8xl">Sunday, June 15</h2>
+            <p class="mb-12 font-headline text-2xl italic opacity-90">
+              The day we’ve been waiting for. We can't wait to celebrate our forever with you.
+            </p>
+            <div class="space-y-10">
+              <div class="hover-lift flex items-start gap-6 border-b border-white/10 pb-6" data-reveal="right" style="--reveal-delay: 0ms">
+                <span class="font-headline text-4xl opacity-50">05:00</span>
+                <div>
+                  <h4 class="font-headline text-2xl">Ceremony</h4>
+                  <p class="mt-1 font-body opacity-80">Exchange of vows at the Azure Pier</p>
+                </div>
+              </div>
+              <div class="hover-lift flex items-start gap-6 border-b border-white/10 pb-6" data-reveal="right" style="--reveal-delay: 100ms">
+                <span class="font-headline text-4xl opacity-50">06:00</span>
+                <div>
+                  <h4 class="font-headline text-2xl">Cocktails</h4>
+                  <p class="mt-1 font-body opacity-80">Sunset drinks and small bites at the Palm Garden</p>
+                </div>
+              </div>
+              <div class="hover-lift flex items-start gap-6 border-b border-white/10 pb-6" data-reveal="right" style="--reveal-delay: 200ms">
+                <span class="font-headline text-4xl opacity-50">07:30</span>
+                <div>
+                  <h4 class="font-headline text-2xl">Dinner &amp; Dancing</h4>
+                  <p class="mt-1 font-body opacity-80">Reception at the Grand Ballroom and Ocean Terrace</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-32" id="rsvp">
+      <div class="mx-auto max-w-4xl px-8">
+        <div class="mb-16 text-center" data-reveal="zoom">
+          <span class="mb-4 block font-label uppercase tracking-[0.2em] text-primary">RSVP</span>
+          <h2 class="font-headline text-5xl">Who’s Joining Us?</h2>
+          <p class="mt-4 font-body text-on-surface-variant">
+            Add each attendee name below and choose which events each person will attend.
+          </p>
+        </div>
+        <div class="form-card rounded-xl bg-surface-container-low p-8 shadow-[0_20px_40px_rgba(28,28,23,0.06)] md:p-12" data-reveal="zoom">
+          <form class="space-y-10" id="rsvp-form">
+            <div class="space-y-8" id="attendee-list"></div>
+
+            <div class="flex flex-col items-center gap-6">
+              <button
+                class="shine-button flex items-center gap-2 rounded-full px-6 py-3 font-label text-sm uppercase tracking-widest text-primary transition-colors hover:bg-surface-container hover:text-secondary"
+                id="add-attendee"
+                type="button"
+              >
+                <span class="material-symbols-outlined">add_circle</span> Add Another Name
+              </button>
+              <button
+                class="editorial-gradient shine-button w-full rounded-full px-16 py-5 font-label text-sm uppercase tracking-widest text-on-primary shadow-xl transition-all hover:scale-[1.02] active:scale-95 md:w-auto"
+                type="submit"
+              >
+                Confirm Attendance
+              </button>
+            </div>
+
+            <div class="hidden rounded-xl border border-primary/20 bg-surface-container p-6 text-center" id="rsvp-success">
+              <p class="font-headline text-2xl text-primary">Thank you.</p>
+              <p class="mt-2 text-on-surface-variant">
+                Your RSVP draft is ready. We can wire this submission to the backend later.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-high py-32" id="travel">
+      <div class="mx-auto max-w-7xl px-8">
+        <div class="flex flex-col items-center gap-16 md:flex-row">
+          <div class="md:w-1/2" data-reveal="left">
+            <span class="mb-4 block font-label uppercase tracking-[0.2em] text-primary">Travel Logistics</span>
+            <h2 class="mb-8 font-headline text-5xl">Getting to Paradise</h2>
+            <div class="space-y-12">
+              <div class="flex gap-6">
+                <span class="material-symbols-outlined text-4xl text-secondary">flight_takeoff</span>
+                <div>
+                  <h4 class="mb-2 font-headline text-2xl">Cancun Airport (CUN)</h4>
+                  <p class="text-on-surface-variant">
+                    We recommend flying into CUN. It's roughly a 20-minute drive to the resort.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-6">
+                <span class="material-symbols-outlined text-4xl text-secondary">airport_shuttle</span>
+                <div>
+                  <h4 class="mb-2 font-headline text-2xl">Resort Shuttles</h4>
+                  <p class="text-on-surface-variant">
+                    Complimentary private transfers are available for our guests between June 10-16. Shuttle details
+                    can be shared separately once flights are booked.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-6">
+                <span class="material-symbols-outlined text-4xl text-secondary">bed</span>
+                <div>
+                  <h4 class="mb-2 font-headline text-2xl">Resort Booking</h4>
+                  <p class="text-on-surface-variant">
+                    We've secured a block of rooms at the <strong>Coastal Serenity Resort</strong>. Use code
+                    <strong>KATYANDDREW</strong> for special rates.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="parallax-card relative h-[500px] w-full overflow-hidden rounded-xl shadow-2xl md:w-1/2" data-parallax data-reveal="right">
+            <div class="absolute inset-0 bg-primary/10"></div>
+            <div class="flex h-full w-full items-center justify-center bg-surface-container-highest">
+              <img
+                class="h-full w-full object-cover grayscale opacity-50"
+                data-alt="minimalist map of cancun coastline highlighting resort locations with turquoise accents"
+                data-location="Cancun"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ_VdYMOrPonX2ns1DP_X13-sG6U6RbW0-wMMTH2b29tV73zpd-gJhmFOVaDPriOLenzeh2JJU-kakYjLtWHUeJUmjtjVCa6SNLtQzemeJq0Qy7dtky9iX7D5uHQ2BV65p90SGlUBv3fvG_FDn6su3lbQbHnYdC0yf9QJMhSjPlsdQsNRI9uLvJcbSwarTkHK7ky5V4Wl2ftrAlkHpd3b-1uHoEGpMp3Py1M7utQQ4y3q2tIt12so-GqzWV3eLPW4xPxFoMujfdp4n"
+              />
+              <div class="absolute rounded-xl border-l-4 border-primary bg-surface p-8 shadow-xl">
+                <p class="font-label text-xs uppercase tracking-widest text-primary">Wedding Location</p>
+                <h5 class="font-headline text-xl">Coastal Serenity Resort</h5>
+                <p class="text-sm opacity-70">Blvd. Kukulcan Km 14.5, Zona Hotelera</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-32" id="faq">
+      <div class="mx-auto max-w-3xl px-8">
+        <h2 class="mb-20 text-center font-headline text-5xl" data-reveal="zoom">Frequently Asked</h2>
+        <div class="space-y-12">
+          <div class="hover-lift group" data-reveal="left">
+            <h4 class="mb-4 font-headline text-2xl text-primary">What is the dress code?</h4>
+            <p class="leading-relaxed text-on-surface-variant">
+              The wedding itself is <strong>Resort Elegant</strong>. For gentlemen, linen suits or dress pants with a
+              button-down. For ladies, midi or maxi dresses in light, airy fabrics. Please avoid shorts and flip-flops
+              for the ceremony.
+            </p>
+          </div>
+          <div class="hover-lift group" data-reveal="right">
+            <h4 class="mb-4 font-headline text-2xl text-primary">Are all events required?</h4>
+            <p class="leading-relaxed text-on-surface-variant">
+              Not at all. Some events are optional and designed to give everyone time to relax. Use the RSVP section
+              to choose the events that make sense for your trip.
+            </p>
+          </div>
+          <div class="hover-lift group" data-reveal="left">
+            <h4 class="mb-4 font-headline text-2xl text-primary">What should we pack?</h4>
+            <p class="leading-relaxed text-on-surface-variant">
+              Bring resort wear, beach essentials, comfortable shoes for excursions, and one polished wedding-day look.
+              June is warm, bright, and breezy.
+            </p>
+          </div>
+          <div class="hover-lift group" data-reveal="right">
+            <h4 class="mb-4 font-headline text-2xl text-primary">What about transportation?</h4>
+            <p class="leading-relaxed text-on-surface-variant">
+              All events listed on the itinerary are held on-resort or include round-trip transportation from the
+              resort lobby. No rental car is necessary.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-low py-32 text-center">
+      <div class="mx-auto max-w-4xl px-8" data-reveal="zoom">
+        <span class="material-symbols-outlined mb-8 text-6xl text-secondary">favorite</span>
+        <h2 class="mb-10 font-headline text-5xl italic">We can't wait to see you there.</h2>
+        <p class="mb-16 font-headline text-2xl leading-relaxed text-on-surface-variant">
+          Thank you for traveling across the ocean to celebrate this moment with us. Your love and support mean the
+          world to us, and we are so excited to create these memories together in paradise.
+        </p>
+        <div class="font-headline text-4xl text-primary">Katy &amp; Drew</div>
+      </div>
+    </section>
+
+    <footer class="w-full border-t border-primary/10 bg-surface">
+      <div class="flex w-full flex-col items-center gap-6 px-4 py-12">
+        <span class="font-headline text-xl text-primary">K&amp;D</span>
+        <div class="flex gap-8">
+          <a
+            class="font-label text-sm uppercase tracking-widest text-tertiary opacity-60 transition-opacity hover:opacity-100"
+            href="#travel"
+            >Travel</a
+          >
+          <a
+            class="font-label text-sm uppercase tracking-widest text-tertiary opacity-60 transition-opacity hover:opacity-100"
+            href="#faq"
+            >FAQ</a
+          >
+        </div>
+        <p class="font-label text-sm uppercase tracking-widest text-tertiary opacity-60">
+          With love, Katy &amp; Drew. See you in Cancun.
+        </p>
+      </div>
+    </footer>
+
+    <template id="attendee-template">
+      <section class="attendee-card space-y-8 rounded-xl border-b border-outline-variant/20 bg-white/30 p-6 pb-8">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="font-label text-xs uppercase tracking-widest text-secondary">Attendee</p>
+            <h3 class="mt-2 font-headline text-2xl text-primary attendee-title">Guest 1</h3>
+          </div>
+          <button
+            class="hidden items-center gap-1 font-label text-xs uppercase tracking-widest text-tertiary transition-colors hover:text-secondary remove-attendee"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-base">close</span> Remove
+          </button>
+        </div>
+        <div class="space-y-2">
+          <label class="ml-1 font-label text-xs uppercase tracking-widest text-primary">Attendee Full Name</label>
+          <input
+            class="w-full rounded-lg border-none bg-surface-container-lowest p-4 text-on-surface transition-all focus:ring-2 focus:ring-primary"
+            placeholder="e.g. Jane Smith"
+            type="text"
+            data-field="name"
+          />
+        </div>
+        <div class="space-y-4">
+          <span class="block font-label text-xs uppercase tracking-widest text-secondary">Select Events to Attend:</span>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-white">
+              <input class="h-5 w-5 rounded text-primary focus:ring-primary" data-event="wed" type="checkbox" />
+              <span class="text-sm">Wed: Welcome Sunset Sail</span>
+            </label>
+            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-white">
+              <input class="h-5 w-5 rounded text-primary focus:ring-primary" data-event="thu" type="checkbox" />
+              <span class="text-sm">Thu: Tulum Excursion</span>
+            </label>
+            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-white">
+              <input class="h-5 w-5 rounded text-primary focus:ring-primary" data-event="fri" type="checkbox" />
+              <span class="text-sm">Fri: Beachside Bonfire</span>
+            </label>
+            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-white">
+              <input class="h-5 w-5 rounded text-primary focus:ring-primary" data-event="sat" type="checkbox" />
+              <span class="text-sm">Sat: Welcome Drinks</span>
+            </label>
+            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-white sm:col-span-2">
+              <input checked class="h-5 w-5 rounded text-primary focus:ring-primary" data-event="sun" type="checkbox" />
+              <span class="text-sm font-bold">Sun: Wedding Day</span>
+            </label>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <script>
+      requestAnimationFrame(() => {
+        document.body.classList.add("page-loaded");
+      });
+
+      const mobileButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileButton?.addEventListener("click", () => {
+        const expanded = mobileButton.getAttribute("aria-expanded") === "true";
+        mobileButton.setAttribute("aria-expanded", String(!expanded));
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      mobileMenu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          mobileButton.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      const attendeeList = document.getElementById("attendee-list");
+      const attendeeTemplate = document.getElementById("attendee-template");
+      const addAttendeeButton = document.getElementById("add-attendee");
+      const rsvpForm = document.getElementById("rsvp-form");
+      const successState = document.getElementById("rsvp-success");
+      const revealTargets = document.querySelectorAll("[data-reveal]");
+      const parallaxCards = document.querySelectorAll("[data-parallax]");
+
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.16,
+            rootMargin: "0px 0px -8% 0px",
+          }
+        );
+
+        revealTargets.forEach((target) => revealObserver.observe(target));
+      } else {
+        revealTargets.forEach((target) => target.classList.add("is-visible"));
+      }
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!prefersReducedMotion) {
+        parallaxCards.forEach((card) => {
+          let rafId = null;
+
+          const resetCard = () => {
+            card.style.transform = "";
+          };
+
+          card.addEventListener("mousemove", (event) => {
+            const bounds = card.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+            if (rafId) cancelAnimationFrame(rafId);
+
+            rafId = requestAnimationFrame(() => {
+              card.style.transform = `perspective(1200px) rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg) translate3d(${(x * 10).toFixed(1)}px, ${(y * 10).toFixed(1)}px, 0)`;
+            });
+          });
+
+          card.addEventListener("mouseleave", resetCard);
+          card.addEventListener("blur", resetCard, true);
+        });
+      }
+
+      function syncAttendeeFields() {
+        const cards = attendeeList.querySelectorAll(".attendee-card");
+
+        cards.forEach((card, index) => {
+          const number = index + 1;
+          const title = card.querySelector(".attendee-title");
+          const nameInput = card.querySelector('[data-field="name"]');
+          const eventInputs = card.querySelectorAll("[data-event]");
+          const removeButton = card.querySelector(".remove-attendee");
+
+          title.textContent = `Guest ${number}`;
+          nameInput.name = `attendees[${index}][name]`;
+
+          eventInputs.forEach((input) => {
+            input.name = `attendees[${index}][events][]`;
+            input.value = input.dataset.event;
+          });
+
+          removeButton.classList.toggle("hidden", cards.length === 1);
+          removeButton.classList.toggle("inline-flex", cards.length > 1);
+        });
+      }
+
+      function addAttendee() {
+        const clone = attendeeTemplate.content.firstElementChild.cloneNode(true);
+        const removeButton = clone.querySelector(".remove-attendee");
+
+        removeButton.addEventListener("click", () => {
+          clone.remove();
+          syncAttendeeFields();
+        });
+
+        attendeeList.appendChild(clone);
+        syncAttendeeFields();
+      }
+
+      addAttendeeButton.addEventListener("click", addAttendee);
+
+      rsvpForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        successState.classList.remove("hidden");
+        successState.classList.add("success-pop");
+        successState.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+
+      addAttendee();
+    </script>
+  </body>
+</html>
