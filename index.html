@@ -413,6 +413,177 @@
         animation: success-pop 0.7s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
+      .progress-rail {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        z-index: 70;
+        background: rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(8px);
+      }
+
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #8aa6f6, #b693eb 55%, #f4b7a1);
+        box-shadow: 0 0 20px rgba(182, 147, 235, 0.45);
+        transform-origin: left center;
+      }
+
+      .hero-title-glow {
+        text-wrap: balance;
+        text-shadow: 0 10px 32px rgba(182, 147, 235, 0.16);
+      }
+
+      .sparkle-field {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .sparkle {
+        position: absolute;
+        width: 0.85rem;
+        height: 0.85rem;
+        opacity: 0;
+        animation: sparkle-pop 4.8s ease-in-out infinite;
+      }
+
+      .sparkle::before,
+      .sparkle::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+        border-radius: 999px;
+      }
+
+      .sparkle::after {
+        transform: rotate(90deg);
+      }
+
+      .sparkle--one {
+        top: 16%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .sparkle--two {
+        top: 28%;
+        right: 14%;
+        animation-delay: 1.1s;
+      }
+
+      .sparkle--three {
+        bottom: 22%;
+        left: 18%;
+        animation-delay: 2.2s;
+      }
+
+      .sparkle--four {
+        bottom: 15%;
+        right: 18%;
+        animation-delay: 3.1s;
+      }
+
+      .marquee-band {
+        position: relative;
+        overflow: hidden;
+        border-top: 1px solid rgba(122, 144, 216, 0.14);
+        border-bottom: 1px solid rgba(122, 144, 216, 0.14);
+        background: rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(8px);
+      }
+
+      .marquee-track {
+        display: flex;
+        gap: 2rem;
+        width: max-content;
+        padding: 1rem 0;
+        animation: marquee-run 26s linear infinite;
+      }
+
+      .marquee-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0 0.25rem;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.24em;
+        color: #665c72;
+        white-space: nowrap;
+      }
+
+      .marquee-chip::before {
+        content: "✦";
+        color: #b693eb;
+      }
+
+      .status-orbit {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .status-orbit::before {
+        content: "";
+        position: absolute;
+        inset: -35% auto auto -10%;
+        width: 18rem;
+        height: 18rem;
+        border-radius: 999px;
+        border: 1px solid rgba(122, 144, 216, 0.14);
+        animation: orbit-spin 18s linear infinite;
+      }
+
+      .status-orbit::after {
+        content: "";
+        position: absolute;
+        inset: auto -20% -25% auto;
+        width: 14rem;
+        height: 14rem;
+        border-radius: 999px;
+        border: 1px solid rgba(244, 183, 161, 0.22);
+        animation: orbit-spin 14s linear infinite reverse;
+      }
+
+      .live-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .live-pill::before {
+        content: "";
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 999px;
+        background: #ef9f8d;
+        box-shadow: 0 0 0 0 rgba(239, 159, 141, 0.45);
+        animation: live-ping 2.2s infinite;
+      }
+
+      .status-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .status-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(140deg, rgba(197, 213, 255, 0.2), transparent 38%),
+          linear-gradient(320deg, rgba(255, 196, 177, 0.14), transparent 36%);
+        pointer-events: none;
+      }
+
+      .mobile-dock {
+        display: none;
+      }
+
       .ambient-line {
         position: absolute;
         inset: auto;
@@ -584,6 +755,114 @@
         }
       }
 
+      @keyframes sparkle-pop {
+        0%,
+        100% {
+          opacity: 0;
+          transform: scale(0.35) rotate(0deg);
+        }
+        18% {
+          opacity: 0.9;
+          transform: scale(1) rotate(45deg);
+        }
+        32% {
+          opacity: 0.55;
+          transform: scale(0.65) rotate(90deg);
+        }
+      }
+
+      @keyframes marquee-run {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes orbit-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes live-ping {
+        0% {
+          box-shadow: 0 0 0 0 rgba(239, 159, 141, 0.48);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(239, 159, 141, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(239, 159, 141, 0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+        }
+
+        .mobile-week-strip {
+          display: flex;
+          gap: 0.9rem;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          padding-bottom: 0.5rem;
+          margin-right: -2rem;
+          padding-right: 2rem;
+        }
+
+        .mobile-week-strip > * {
+          min-width: 8.75rem;
+          scroll-snap-align: start;
+          flex: 0 0 auto;
+        }
+
+        .mobile-dock {
+          position: fixed;
+          left: 50%;
+          bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+          z-index: 80;
+          display: flex;
+          width: min(calc(100% - 1.25rem), 28rem);
+          transform: translateX(-50%);
+          align-items: center;
+          justify-content: space-between;
+          gap: 0.55rem;
+          border: 1px solid rgba(122, 144, 216, 0.12);
+          background: rgba(255, 249, 252, 0.82);
+          padding: 0.55rem;
+          border-radius: 999px;
+          backdrop-filter: blur(20px);
+          box-shadow: 0 22px 50px rgba(45, 36, 52, 0.14);
+        }
+
+        .mobile-dock a {
+          display: inline-flex;
+          min-width: 0;
+          flex: 1 1 0;
+          align-items: center;
+          justify-content: center;
+          border-radius: 999px;
+          padding: 0.82rem 0.5rem;
+          font-size: 0.68rem;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #665c72;
+          background: rgba(255, 255, 255, 0.58);
+        }
+
+        .mobile-dock a.mobile-dock__primary {
+          background: linear-gradient(135deg, #8aa6f6 0%, #b693eb 52%, #f4b7a1 100%);
+          color: white;
+          box-shadow: 0 10px 24px rgba(182, 147, 235, 0.22);
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
@@ -606,6 +885,7 @@
     </style>
   </head>
   <body class="animated-shell bg-surface text-on-surface font-body selection:bg-secondary-fixed selection:text-secondary">
+    <div class="progress-rail"><div class="progress-fill" id="scroll-progress"></div></div>
     <nav class="fixed top-0 z-50 w-full glass-nav shadow-[0_20px_40px_rgba(28,28,23,0.06)]" data-load style="--delay: 100ms">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-8 py-6">
         <span class="font-headline text-2xl italic text-primary">Katy &amp; Drew</span>
@@ -622,8 +902,8 @@
           >
           <a
             class="font-headline text-lg tracking-wide text-tertiary opacity-80 transition-colors duration-300 hover:text-secondary"
-            href="#travel"
-            >Travel</a
+            href="#whereabouts"
+            >Where We Are</a
           >
           <a
             class="font-headline text-lg tracking-wide text-tertiary opacity-80 transition-colors duration-300 hover:text-secondary"
@@ -644,7 +924,7 @@
         <div class="flex flex-col gap-4">
           <a class="font-headline text-lg text-primary" href="#itinerary">Itinerary</a>
           <a class="font-headline text-lg text-tertiary" href="#rsvp">RSVP</a>
-          <a class="font-headline text-lg text-tertiary" href="#travel">Travel</a>
+          <a class="font-headline text-lg text-tertiary" href="#whereabouts">Where We Are</a>
           <a class="font-headline text-lg text-tertiary" href="#faq">FAQ</a>
         </div>
       </div>
@@ -655,11 +935,17 @@
       <div class="hero-grid absolute inset-0"></div>
       <div class="floating-orb floating-orb--a"></div>
       <div class="floating-orb floating-orb--b"></div>
+      <div class="sparkle-field">
+        <span class="sparkle sparkle--one"></span>
+        <span class="sparkle sparkle--two"></span>
+        <span class="sparkle sparkle--three"></span>
+        <span class="sparkle sparkle--four"></span>
+      </div>
       <div class="ambient-line ambient-line--a"></div>
       <div class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-8 md:grid-cols-12">
         <div class="z-10 md:col-span-6">
           <span class="mb-4 block font-label uppercase tracking-[0.3em] text-secondary" data-load style="--delay: 180ms">Destination Cancun</span>
-          <h1 class="mb-6 font-headline text-6xl leading-tight md:text-8xl" data-load style="--delay: 280ms">Katy &amp; Drew Say I Do</h1>
+          <h1 class="hero-title-glow mb-6 font-headline text-6xl leading-tight md:text-8xl" data-load style="--delay: 280ms">Katy &amp; Drew Say I Do</h1>
           <p class="mb-10 max-w-lg font-headline text-2xl italic text-on-surface-variant" data-load style="--delay: 380ms">
             Your Guide to our Cancun Wedding Week
           </p>
@@ -671,8 +957,8 @@
             >
             <a
               class="shine-button rounded-full bg-surface-container-high px-10 py-5 text-center font-label text-sm uppercase tracking-widest text-primary transition-colors hover:bg-surface-container-highest"
-              href="#travel"
-              >Travel Details</a
+              href="#whereabouts"
+              >Find Us</a
             >
           </div>
         </div>
@@ -698,6 +984,23 @@
       </div>
     </section>
 
+    <section class="marquee-band" data-reveal="zoom">
+      <div class="marquee-track" aria-hidden="true">
+        <span class="marquee-chip">Cancun week itinerary</span>
+        <span class="marquee-chip">Rooftop ceremony</span>
+        <span class="marquee-chip">Beach reception</span>
+        <span class="marquee-chip">Yacht day</span>
+        <span class="marquee-chip">Beach bonfire</span>
+        <span class="marquee-chip">Live couple status</span>
+        <span class="marquee-chip">Cancun week itinerary</span>
+        <span class="marquee-chip">Rooftop ceremony</span>
+        <span class="marquee-chip">Beach reception</span>
+        <span class="marquee-chip">Yacht day</span>
+        <span class="marquee-chip">Beach bonfire</span>
+        <span class="marquee-chip">Live couple status</span>
+      </div>
+    </section>
+
     <section class="bg-surface-container-low py-32" data-reveal="zoom">
       <div class="mx-auto max-w-7xl px-8">
         <div class="mb-20 text-center">
@@ -707,7 +1010,7 @@
           </p>
           <div class="mx-auto h-1 w-24 bg-secondary"></div>
         </div>
-        <div class="grid grid-cols-2 gap-4 md:grid-cols-6">
+        <div class="mobile-week-strip grid grid-cols-2 gap-4 md:grid-cols-6">
           <div class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 0ms">
             <span class="mb-2 font-label text-xs uppercase tracking-tighter text-tertiary">Tue</span>
             <span class="font-headline text-lg">Arrivals</span>
@@ -938,57 +1241,64 @@
       </div>
     </section>
 
-    <section class="bg-surface-container-high py-32" id="travel">
+    <section class="bg-surface-container-high py-32" id="whereabouts">
       <div class="mx-auto max-w-7xl px-8">
         <div class="flex flex-col items-center gap-16 md:flex-row">
           <div class="md:w-1/2" data-reveal="left">
-            <span class="mb-4 block font-label uppercase tracking-[0.2em] text-primary">Travel Logistics</span>
-            <h2 class="mb-8 font-headline text-5xl">Getting to Paradise</h2>
+            <span class="mb-4 block font-label uppercase tracking-[0.2em] text-primary">Live Status</span>
+            <h2 class="mb-8 font-headline text-5xl">Where is the Bride &amp; Groom?</h2>
             <div class="space-y-12">
               <div class="flex gap-6">
-                <span class="material-symbols-outlined text-4xl text-secondary">flight_takeoff</span>
+                <span class="material-symbols-outlined text-4xl text-secondary">location_on</span>
                 <div>
-                  <h4 class="mb-2 font-headline text-2xl">Cancun Airport (CUN)</h4>
-                  <p class="text-on-surface-variant">
-                    We recommend flying into CUN. It's roughly a 20-minute drive to the resort.
+                  <h4 class="mb-2 font-headline text-2xl" id="status-location-title">Around the resort</h4>
+                  <p class="text-on-surface-variant" id="status-location-copy">
+                    We’ll use this area to share where we are throughout the trip so guests can find us more easily.
                   </p>
                 </div>
               </div>
               <div class="flex gap-6">
-                <span class="material-symbols-outlined text-4xl text-secondary">airport_shuttle</span>
+                <span class="material-symbols-outlined text-4xl text-secondary">schedule</span>
                 <div>
-                  <h4 class="mb-2 font-headline text-2xl">Resort Shuttles</h4>
-                  <p class="text-on-surface-variant">
-                    Complimentary private transfers are available for our guests between June 10-16. Shuttle details
-                    can be shared separately once flights are booked.
+                  <h4 class="mb-2 font-headline text-2xl" id="status-next-title">Next up</h4>
+                  <p class="text-on-surface-variant" id="status-next-copy">
+                    We can also use this to show what we’re heading to next or when we expect to move.
                   </p>
                 </div>
               </div>
               <div class="flex gap-6">
-                <span class="material-symbols-outlined text-4xl text-secondary">bed</span>
+                <span class="material-symbols-outlined text-4xl text-secondary">info</span>
                 <div>
-                  <h4 class="mb-2 font-headline text-2xl">Resort Booking</h4>
-                  <p class="text-on-surface-variant">
-                    We've secured a block of rooms at the <strong>Coastal Serenity Resort</strong>. Use code
-                    <strong>KATYANDDREW</strong> for special rates.
+                  <h4 class="mb-2 font-headline text-2xl" id="status-note-title">How this works</h4>
+                  <p class="text-on-surface-variant" id="status-note-copy">
+                    This is a lightweight live update area so guests can see where we are without digging through texts.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="parallax-card relative h-[500px] w-full overflow-hidden rounded-xl shadow-2xl md:w-1/2" data-parallax data-reveal="right">
+          <div class="status-orbit parallax-card relative h-[500px] w-full overflow-hidden rounded-xl shadow-2xl md:w-1/2" data-parallax data-reveal="right">
             <div class="absolute inset-0 bg-primary/10"></div>
-            <div class="flex h-full w-full items-center justify-center bg-surface-container-highest">
-              <img
-                class="h-full w-full object-cover grayscale opacity-50"
-                data-alt="minimalist map of cancun coastline highlighting resort locations with turquoise accents"
-                data-location="Cancun"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ_VdYMOrPonX2ns1DP_X13-sG6U6RbW0-wMMTH2b29tV73zpd-gJhmFOVaDPriOLenzeh2JJU-kakYjLtWHUeJUmjtjVCa6SNLtQzemeJq0Qy7dtky9iX7D5uHQ2BV65p90SGlUBv3fvG_FDn6su3lbQbHnYdC0yf9QJMhSjPlsdQsNRI9uLvJcbSwarTkHK7ky5V4Wl2ftrAlkHpd3b-1uHoEGpMp3Py1M7utQQ4y3q2tIt12so-GqzWV3eLPW4xPxFoMujfdp4n"
-              />
-              <div class="absolute rounded-xl border-l-4 border-primary bg-surface p-8 shadow-xl">
-                <p class="font-label text-xs uppercase tracking-widest text-primary">Wedding Location</p>
-                <h5 class="font-headline text-xl">Coastal Serenity Resort</h5>
-                <p class="text-sm opacity-70">Blvd. Kukulcan Km 14.5, Zona Hotelera</p>
+            <div class="flex h-full w-full items-center justify-center bg-surface-container-highest p-8">
+              <div class="status-card w-full max-w-lg rounded-[2rem] border border-primary/10 bg-white/55 p-8 shadow-[0_24px_50px_rgba(45,36,52,0.08)] backdrop-blur-md">
+                <p class="live-pill font-label text-xs uppercase tracking-[0.25em] text-primary">Live now</p>
+                <h5 class="mt-4 font-headline text-4xl text-primary" id="status-headline">At the resort pool</h5>
+                <p class="mt-4 text-lg text-on-surface-variant" id="status-subhead">Come say hi if you’re around.</p>
+
+                <div class="mt-8 grid gap-4">
+                  <div class="rounded-2xl bg-surface px-5 py-4">
+                    <p class="font-label text-[11px] uppercase tracking-[0.22em] text-tertiary">Where</p>
+                    <p class="mt-2 text-base text-on-surface" id="status-where">The Fives Beach Hotel &amp; Residences</p>
+                  </div>
+                  <div class="rounded-2xl bg-surface px-5 py-4">
+                    <p class="font-label text-[11px] uppercase tracking-[0.22em] text-tertiary">Next Move</p>
+                    <p class="mt-2 text-base text-on-surface" id="status-next-move">Heading to dinner around 7:00 PM</p>
+                  </div>
+                  <div class="rounded-2xl bg-surface px-5 py-4">
+                    <p class="font-label text-[11px] uppercase tracking-[0.22em] text-tertiary">Last Updated</p>
+                    <p class="mt-2 text-base text-on-surface" id="status-updated">Update this anytime during the trip</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1023,10 +1333,10 @@
             </p>
           </div>
           <div class="hover-lift group" data-reveal="right">
-            <h4 class="mb-4 font-headline text-2xl text-primary">What about transportation?</h4>
+            <h4 class="mb-4 font-headline text-2xl text-primary">Where can we find Katy and Drew?</h4>
             <p class="leading-relaxed text-on-surface-variant">
-              All events listed on the itinerary are held on-resort or include round-trip transportation from the
-              resort lobby. No rental car is necessary.
+              Check the “Where is the Bride &amp; Groom?” section for live updates during the trip. We’ll use that area
+              to share where we are around the resort or what we’re heading to next.
             </p>
           </div>
         </div>
@@ -1051,8 +1361,8 @@
         <div class="flex gap-8">
           <a
             class="font-label text-sm uppercase tracking-widest text-tertiary opacity-60 transition-opacity hover:opacity-100"
-            href="#travel"
-            >Travel</a
+            href="#whereabouts"
+            >Where We Are</a
           >
           <a
             class="font-label text-sm uppercase tracking-widest text-tertiary opacity-60 transition-opacity hover:opacity-100"
@@ -1065,6 +1375,13 @@
         </p>
       </div>
     </footer>
+
+    <div class="mobile-dock md:hidden">
+      <a href="#itinerary">Plan</a>
+      <a href="#whereabouts">Find Us</a>
+      <a class="mobile-dock__primary" href="#rsvp">RSVP</a>
+      <a href="#faq">FAQ</a>
+    </div>
 
     <template id="attendee-template">
       <section class="attendee-card space-y-8 rounded-xl border-b border-outline-variant/20 bg-white/30 p-6 pb-8">
@@ -1143,8 +1460,51 @@
       const addAttendeeButton = document.getElementById("add-attendee");
       const rsvpForm = document.getElementById("rsvp-form");
       const successState = document.getElementById("rsvp-success");
+      const scrollProgress = document.getElementById("scroll-progress");
       const revealTargets = document.querySelectorAll("[data-reveal]");
       const parallaxCards = document.querySelectorAll("[data-parallax]");
+
+      const statusFields = {
+        headline: document.getElementById("status-headline"),
+        subhead: document.getElementById("status-subhead"),
+        where: document.getElementById("status-where"),
+        next_move: document.getElementById("status-next-move"),
+        updated: document.getElementById("status-updated"),
+        location_title: document.getElementById("status-location-title"),
+        location_copy: document.getElementById("status-location-copy"),
+        next_title: document.getElementById("status-next-title"),
+        next_copy: document.getElementById("status-next-copy"),
+        note_title: document.getElementById("status-note-title"),
+        note_copy: document.getElementById("status-note-copy"),
+      };
+
+      function updateScrollProgress() {
+        if (!scrollProgress) return;
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        scrollProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+      }
+
+      window.addEventListener("scroll", updateScrollProgress, { passive: true });
+      window.addEventListener("resize", updateScrollProgress);
+      updateScrollProgress();
+
+      async function loadStatusBoard() {
+        try {
+          const response = await fetch("./status.json", { cache: "no-store" });
+          if (!response.ok) return;
+          const data = await response.json();
+          Object.entries(statusFields).forEach(([key, node]) => {
+            if (node && typeof data[key] === "string" && data[key].trim()) {
+              node.textContent = data[key];
+            }
+          });
+        } catch (error) {
+          // Leave the on-page fallback copy in place if the status file is missing or unreachable.
+        }
+      }
+
+      loadStatusBoard();
 
       if ("IntersectionObserver" in window) {
         const revealObserver = new IntersectionObserver(
