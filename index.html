@@ -4,6 +4,26 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Katy &amp; Drew Say I Do | Cancun Wedding</title>
+    <meta
+      name="description"
+      content="A whimsical Cancun wedding itinerary for Katy and Drew, with the full week schedule and optional event RSVPs."
+    />
+    <meta name="theme-color" content="#ece1f3" />
+    <meta property="og:title" content="Katy &amp; Drew Say I Do" />
+    <meta property="og:description" content="The Cancun wedding week itinerary for Katy and Drew." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://katyanddrewsayido.com/" />
+    <meta property="og:image" content="https://katyanddrewsayido.com/assets/katy-and-drew-hero.jpg" />
+    <meta
+      property="og:image:alt"
+      content="Katy and Drew embracing in front of a bright blue mountain lake."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Katy &amp; Drew Say I Do" />
+    <meta name="twitter:description" content="The Cancun wedding week itinerary for Katy and Drew." />
+    <meta name="twitter:image" content="https://katyanddrewsayido.com/assets/katy-and-drew-hero.jpg" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./assets/katy-and-drew-hero.jpg" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,600&amp;family=Manrope:wght@300;400;500;700&amp;display=swap"
@@ -19,37 +39,37 @@
         theme: {
           extend: {
             colors: {
-              "surface-variant": "#e6e0ef",
+              "surface-variant": "#ddd1e7",
               primary: "#7a90d8",
               "primary-fixed-dim": "#c5d5ff",
               "on-error-container": "#93000a",
               "on-primary": "#ffffff",
-              "surface-dim": "#e5deeb",
+              "surface-dim": "#daccdf",
               "primary-container": "#8ea4ec",
               "secondary-container": "#ffc4b1",
               "tertiary-fixed": "#f0dbff",
               "on-surface": "#2d2434",
-              "surface-container-lowest": "#ffffff",
+              "surface-container-lowest": "#efe6f4",
               "on-primary-fixed-variant": "#566bb4",
               "tertiary-container": "#d8b2ff",
-              "surface-bright": "#fffafc",
+              "surface-bright": "#f8f0f8",
               "secondary-fixed-dim": "#ffb8a3",
-              "surface-container-high": "#f2ebf7",
-              "surface-container-highest": "#e9e1f1",
+              "surface-container-high": "#e8dced",
+              "surface-container-highest": "#ddd0e7",
               tertiary: "#8b67b6",
               "secondary-fixed": "#ffdcd1",
               "on-tertiary": "#ffffff",
               "inverse-surface": "#3c3244",
               "inverse-primary": "#d8e3ff",
-              "surface-container": "#f7f0fb",
+              "surface-container": "#e9ddf1",
               "on-surface-variant": "#665c72",
-              surface: "#fff9fc",
+              surface: "#f6edf7",
               "on-tertiary-fixed-variant": "#6f4f95",
               "error-container": "#ffdad6",
               "tertiary-fixed-dim": "#dcb3ff",
               "on-tertiary-fixed": "#2c183f",
               "on-secondary": "#ffffff",
-              "surface-container-low": "#fcf5ff",
+              "surface-container-low": "#f1e7f5",
               "on-tertiary-container": "#4d316c",
               "on-primary-fixed": "#263a78",
               "inverse-on-surface": "#f7eefb",
@@ -61,7 +81,7 @@
               outline: "#8f839b",
               "on-secondary-fixed-variant": "#802918",
               "on-secondary-container": "#7f4b43",
-              background: "#fff9fc",
+              background: "#f6edf7",
               "on-error": "#ffffff",
               secondary: "#ef9f8d",
               error: "#ba1a1a",
@@ -91,8 +111,8 @@
         overflow-x: hidden;
         background:
           radial-gradient(circle at top left, rgba(197, 213, 255, 0.55), transparent 22rem),
-          radial-gradient(circle at 85% 15%, rgba(255, 196, 177, 0.42), transparent 20rem),
-          linear-gradient(180deg, #fff9fc 0%, #fbf3ff 48%, #fff5f1 100%);
+          radial-gradient(circle at 85% 15%, rgba(255, 196, 177, 0.38), transparent 20rem),
+          linear-gradient(180deg, #f5ebf8 0%, #efe4f6 46%, #f7ece8 100%);
       }
 
       .material-symbols-outlined {
@@ -104,7 +124,7 @@
       }
 
       .glass-nav {
-        background: rgba(255, 249, 252, 0.72);
+        background: rgba(240, 230, 245, 0.8);
         backdrop-filter: blur(12px);
       }
 
@@ -385,6 +405,8 @@
       .form-card {
         position: relative;
         overflow: hidden;
+        border: 1px solid rgba(122, 144, 216, 0.14);
+        box-shadow: 0 28px 64px rgba(45, 36, 52, 0.09);
       }
 
       .form-card::before {
@@ -402,11 +424,13 @@
           transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
           box-shadow 360ms ease,
           background-color 360ms ease;
+        border: 1px solid rgba(122, 144, 216, 0.1);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
       }
 
       .attendee-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 18px 38px rgba(28, 28, 23, 0.08);
+        box-shadow: 0 18px 38px rgba(45, 36, 52, 0.1);
       }
 
       .success-pop {
@@ -493,7 +517,7 @@
         overflow: hidden;
         border-top: 1px solid rgba(122, 144, 216, 0.14);
         border-bottom: 1px solid rgba(122, 144, 216, 0.14);
-        background: rgba(255, 255, 255, 0.45);
+        background: rgba(237, 228, 244, 0.7);
         backdrop-filter: blur(8px);
       }
 
@@ -568,6 +592,8 @@
       .status-card {
         position: relative;
         overflow: hidden;
+        border: 1px solid rgba(122, 144, 216, 0.16);
+        box-shadow: 0 26px 60px rgba(45, 36, 52, 0.12);
       }
 
       .status-card::before {
@@ -589,7 +615,7 @@
         margin-top: 1.35rem;
         padding: 0.95rem 1rem 0.95rem 1.05rem;
         border-radius: 1.5rem;
-        background: rgba(255, 255, 255, 0.56);
+        background: rgba(239, 230, 244, 0.82);
         border: 1px solid rgba(122, 144, 216, 0.12);
         box-shadow: 0 18px 38px rgba(45, 36, 52, 0.08);
         backdrop-filter: blur(16px);
@@ -915,7 +941,7 @@
           justify-content: space-between;
           gap: 0.55rem;
           border: 1px solid rgba(122, 144, 216, 0.12);
-          background: rgba(255, 249, 252, 0.82);
+          background: rgba(236, 225, 243, 0.9);
           padding: 0.55rem;
           border-radius: 999px;
           backdrop-filter: blur(20px);
@@ -934,7 +960,7 @@
           letter-spacing: 0.16em;
           text-transform: uppercase;
           color: #665c72;
-          background: rgba(255, 255, 255, 0.58);
+          background: rgba(248, 240, 250, 0.92);
         }
 
         .mobile-dock a.mobile-dock__primary {
@@ -1073,7 +1099,7 @@
             <img
               class="h-full w-full object-cover"
               alt="Katy and Drew embracing in front of a bright blue mountain lake"
-              src="./assets/katy-and-drew-hero.png"
+              src="./assets/katy-and-drew-hero.jpg"
             />
           </div>
           <div class="absolute top-12 -left-8 hidden h-64 w-48 -rotate-6 overflow-hidden rounded-xl border-4 border-surface shadow-xl md:block" data-load style="--delay: 520ms">
@@ -1172,9 +1198,9 @@
           <div class="border-l-2 border-surface-container-high py-4 pl-12 md:col-span-8">
             <span class="font-label text-sm font-bold uppercase tracking-widest text-secondary">Tuesday, June 23</span>
             <h3 class="mb-4 mt-2 font-headline text-3xl">Resort Day</h3>
-            <p class="mb-6 leading-relaxed text-on-surface-variant">
-              No formal events are planned for Tuesday. Settle in, enjoy the resort, and ease into the week. Katy and
-              Drew will be around and would love to see you.
+            <p class="mb-6 text-base leading-relaxed text-on-surface-variant">
+              No formal plans on Tuesday. Settle in, enjoy the resort, and ease into the week. Katy and Drew will be
+              around.
             </p>
             <div class="flex items-center gap-4 font-label text-xs uppercase tracking-widest text-primary">
               <span class="material-symbols-outlined">deck</span> The Fives Beach Hotel &amp; Residences
@@ -1186,10 +1212,9 @@
           <div class="order-2 border-r-2 border-surface-container-high py-4 pr-12 text-right md:order-1 md:col-span-8">
             <span class="font-label text-sm font-bold uppercase tracking-widest text-secondary">Wednesday, June 24</span>
             <h3 class="mb-4 mt-2 font-headline text-3xl">Chichen Itza</h3>
-            <p class="mb-6 leading-relaxed text-on-surface-variant">
-              Departure is at 1:00 PM with a return around 6:00 PM. Transportation is included and there is no cost to
-              guests. This outing is open to everyone, but it is especially intended for early arrivals since most
-              guests will arrive on Thursday afternoon or evening.
+            <p class="mb-6 text-base leading-relaxed text-on-surface-variant">
+              Departure is at 1:00 PM with return around 6:00 PM. Transportation is included and the trip is free.
+              RSVP if you are one of the early arrivals joining us before most guests get in on Thursday.
             </p>
             <div class="flex items-center justify-end gap-4 font-label text-xs uppercase tracking-widest text-primary">
               1:00 PM Departure — RSVP Required <span class="material-symbols-outlined">temple_buddhist</span>
@@ -1200,7 +1225,7 @@
               <img
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 alt="The Chichen Itza pyramid under a bright sky"
-                src="./assets/chichen-itza.jpg"
+                src="./assets/chichen-itza-optimized.jpg"
               />
               <div class="absolute inset-0 bg-primary/20 transition-colors duration-500 group-hover:bg-primary/0"></div>
             </div>
@@ -1210,22 +1235,73 @@
         <div class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2">
           <div class="hover-lift group relative rounded-xl bg-surface-container-low p-10 shadow-[0_16px_35px_rgba(28,28,23,0.05)]" data-reveal="left">
             <span class="mb-4 block font-label text-xs font-bold uppercase tracking-widest text-secondary">Thursday, June 25</span>
-            <h3 class="mb-4 font-headline text-2xl italic">Dive Trip</h3>
-            <p class="mb-6 text-sm text-on-surface-variant">
-              A morning outing for guests with scuba certification. Transportation is included. Location is still to be
-              confirmed, and cost is expected to be about $175 per person. Around 15 guests are expected to dive.
+            <h3 class="mb-4 font-headline text-3xl italic">Dive Trip</h3>
+            <p class="mb-6 text-base leading-relaxed text-on-surface-variant">
+              Morning dive for licensed scuba guests only. Transportation is included, location is still TBD, and cost
+              is currently expected to land around $175 per person.
             </p>
             <span class="font-label text-xs uppercase tracking-widest text-tertiary">RSVP Required • Certified Divers Only</span>
           </div>
           <div class="hover-lift group relative rounded-xl bg-surface-container-low p-10 shadow-[0_16px_35px_rgba(28,28,23,0.05)]" data-reveal="right">
             <span class="mb-4 block font-label text-xs font-bold uppercase tracking-widest text-secondary">Thursday, June 25</span>
-            <h3 class="mb-4 font-headline text-2xl italic">Pool Party at The Fives</h3>
-            <p class="mb-6 text-sm text-on-surface-variant">
-              If you are not diving, the expectation is to relax and enjoy the resort. Pool time will happen whenever
-              there is not another scheduled event.
+            <h3 class="mb-4 font-headline text-3xl italic">Pool Party at The Fives</h3>
+            <p class="mb-6 text-base leading-relaxed text-on-surface-variant">
+              If you are not diving, plan on a relaxed resort afternoon. Pool time kicks in whenever there is not
+              another scheduled event.
             </p>
             <div class="flex items-center gap-2 font-label text-xs uppercase tracking-widest text-primary">
               <span class="material-symbols-outlined">pool</span> Afternoon • At the Resort
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-12" data-reveal="zoom">
+          <div class="md:col-span-5">
+            <div class="parallax-card relative aspect-[4/5] overflow-hidden rounded-xl shadow-xl" data-parallax>
+              <img
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="lush cenote surrounded by jungle with bright blue water"
+                src="https://images.unsplash.com/photo-1582972236019-ea9e3d35f8ba?auto=format&fit=crop&w=1200&q=80"
+              />
+              <div class="absolute inset-0 bg-primary/15"></div>
+            </div>
+          </div>
+          <div class="md:col-span-7">
+            <span class="font-label text-sm font-bold uppercase tracking-widest text-secondary">Friday, June 26</span>
+            <h3 class="mb-6 mt-2 font-headline text-3xl">Cenotes, Lunch + Pool Party</h3>
+            <div class="grid gap-5">
+              <div class="rounded-xl bg-surface-container p-6">
+                <span class="font-label text-xs uppercase tracking-widest text-primary">8:00 AM - 2:00 PM — Cenotes</span>
+                <p class="mt-2 text-base leading-relaxed text-on-surface-variant">
+                  Location is still TBD. Guests will make their own way, and this stop does not need an RSVP.
+                </p>
+              </div>
+              <div class="rounded-xl bg-surface-container p-6">
+                <span class="font-label text-xs uppercase tracking-widest text-primary">2:00 PM — Suggested Lunch at El Fogon</span>
+                <p class="mt-2 text-base leading-relaxed text-on-surface-variant">
+                  Join if you want. This is a suggested group lunch in Playa del Carmen.
+                </p>
+                <a
+                  class="mt-3 inline-flex items-center gap-2 font-label text-xs uppercase tracking-widest text-primary"
+                  href="https://www.google.com/maps/search/?api=1&amp;query=El+Fogon%2C+Av.+Constituyentes%2C+Quintas+del+Carmen%2C+Gonzalo+Guerrero+77720+Playa+del+Carmen+QR+Mexico"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Google Maps <span class="material-symbols-outlined text-base">arrow_outward</span>
+                </a>
+              </div>
+              <div class="rounded-xl bg-surface-container p-6">
+                <span class="font-label text-xs uppercase tracking-widest text-primary">3:00 PM Until Late — Pool Party</span>
+                <p class="mt-2 text-base leading-relaxed text-on-surface-variant">
+                  Back at The Fives Beach Hotel &amp; Residences for pool time, drinks, and hanging out.
+                </p>
+              </div>
+              <div class="rounded-xl bg-surface-container p-6">
+                <span class="font-label text-xs uppercase tracking-widest text-primary">7:00 PM — Private Dinner</span>
+                <p class="mt-2 text-base leading-relaxed text-on-surface-variant">
+                  Invite only. We’ll share details directly with the people included.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -1246,20 +1322,20 @@
             <div class="mt-8 space-y-8">
               <div>
                 <span class="font-label text-xs uppercase tracking-widest text-primary">Approximately 8:00 AM - 3:00 PM — Yacht Day</span>
-                <p class="mt-1 text-sm text-on-surface-variant">
-                  Join us for snorkeling, an island stop, and an open bar. Transportation will be provided, with details
-                  to come. This event is hosted by us, so there is no cost to guests. RSVP required.
+                <p class="mt-2 text-base leading-relaxed text-on-surface-variant">
+                  Snorkeling, an island stop, and an open bar are all included. Transportation will be provided, cost is
+                  free, and RSVP is required.
                 </p>
               </div>
               <div class="rounded-xl bg-surface-container p-6">
                 <span class="font-label text-xs uppercase tracking-widest text-primary">Transportation Included</span>
-                <p class="mt-1 text-sm text-on-surface-variant">
+                <p class="mt-2 text-base leading-relaxed text-on-surface-variant">
                   Bus transportation details will be shared as the date gets closer.
                 </p>
               </div>
               <div class="rounded-xl bg-surface-container p-6">
                 <span class="font-label text-xs uppercase tracking-widest text-primary">7:00 PM — Beach Bonfire</span>
-                <p class="mt-1 text-sm text-on-surface-variant">
+                <p class="mt-2 text-base leading-relaxed text-on-surface-variant">
                   Join us back at the resort for an evening beach bonfire.
                 </p>
               </div>
@@ -1322,7 +1398,8 @@
           <span class="mb-4 block font-label uppercase tracking-[0.2em] text-primary">RSVP</span>
           <h2 class="font-headline text-5xl">Who’s Joining Us?</h2>
           <p class="mt-4 font-body text-on-surface-variant">
-            Add each attendee name below and choose which events each person will attend.
+            Add each attendee name below and choose the optional events they want to join. Everyone is already counted
+            for the wedding day.
           </p>
         </div>
         <div class="form-card rounded-xl bg-surface-container-low p-8 shadow-[0_20px_40px_rgba(28,28,23,0.06)] md:p-12" data-reveal="zoom">
@@ -1395,7 +1472,7 @@
           <div class="status-orbit parallax-card relative h-[500px] w-full overflow-hidden rounded-xl shadow-2xl md:w-1/2" data-parallax data-reveal="right">
             <div class="absolute inset-0 bg-primary/10"></div>
             <div class="flex h-full w-full items-center justify-center bg-surface-container-highest p-8">
-              <div class="status-card w-full max-w-lg rounded-[2rem] border border-primary/10 bg-white/55 p-8 shadow-[0_24px_50px_rgba(45,36,52,0.08)] backdrop-blur-md">
+              <div class="status-card w-full max-w-lg rounded-[2rem] bg-surface-container-low p-8 backdrop-blur-md">
                 <p class="live-pill font-label text-xs uppercase tracking-[0.25em] text-primary">Live now</p>
                 <h5 class="mt-4 font-headline text-4xl text-primary" id="status-headline">At the resort pool</h5>
                 <p class="mt-4 text-lg text-on-surface-variant" id="status-subhead">Come say hi if you’re around.</p>
@@ -1499,7 +1576,7 @@
     </div>
 
     <template id="attendee-template">
-      <section class="attendee-card space-y-8 rounded-xl border-b border-outline-variant/20 bg-white/30 p-6 pb-8">
+      <section class="attendee-card space-y-8 rounded-xl border-b border-outline-variant/20 bg-surface-container-low p-6 pb-8">
         <div class="flex items-start justify-between gap-4">
           <div>
             <p class="font-label text-xs uppercase tracking-widest text-secondary">Attendee</p>
@@ -1524,22 +1601,21 @@
         <div class="space-y-4">
           <span class="block font-label text-xs uppercase tracking-widest text-secondary">Select Events to Attend:</span>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-white">
+            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-surface">
               <input class="h-5 w-5 rounded text-primary focus:ring-primary" data-event="wed" type="checkbox" />
               <span class="text-sm">Wed: Chichen Itza</span>
             </label>
-            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-white">
+            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-surface">
               <input class="h-5 w-5 rounded text-primary focus:ring-primary" data-event="thu" type="checkbox" />
               <span class="text-sm">Thu: Dive Trip</span>
             </label>
-            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-white">
+            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-surface sm:col-span-2">
               <input class="h-5 w-5 rounded text-primary focus:ring-primary" data-event="sat_day" type="checkbox" />
               <span class="text-sm">Sat: Yacht Day</span>
             </label>
-            <label class="flex cursor-pointer items-center gap-3 rounded-lg bg-surface-container-lowest p-4 transition-colors hover:bg-white sm:col-span-2">
-              <input checked class="h-5 w-5 rounded text-primary focus:ring-primary" data-event="sun" type="checkbox" />
-              <span class="text-sm font-bold">Sun: Wedding Day</span>
-            </label>
+          </div>
+          <div class="rounded-lg border border-primary/10 bg-surface-container px-4 py-3">
+            <p class="text-sm font-medium text-on-surface">Sunday wedding day is already included for everyone.</p>
           </div>
         </div>
       </section>
