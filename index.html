@@ -13,7 +13,7 @@
     <meta property="og:description" content="The Cancun wedding week itinerary for Katy and Drew." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://katyanddrewsayido.com/" />
-    <meta property="og:image" content="https://katyanddrewsayido.com/assets/katy-and-drew-hero-sharp.jpg" />
+    <meta property="og:image" content="https://katyanddrewsayido.com/assets/katy-and-drew-hero-color.png" />
     <meta
       property="og:image:alt"
       content="Katy and Drew embracing in front of a bright blue mountain lake."
@@ -21,9 +21,9 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Katy &amp; Drew Say I Do" />
     <meta name="twitter:description" content="The Cancun wedding week itinerary for Katy and Drew." />
-    <meta name="twitter:image" content="https://katyanddrewsayido.com/assets/katy-and-drew-hero-sharp.jpg" />
+    <meta name="twitter:image" content="https://katyanddrewsayido.com/assets/katy-and-drew-hero-color.png" />
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="./assets/katy-and-drew-hero-sharp.jpg" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,600&amp;family=Manrope:wght@300;400;500;700&amp;display=swap"
@@ -336,6 +336,69 @@
         border-radius: 999px;
         background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 65%);
         animation: halo-spin 18s linear infinite;
+      }
+
+      .sunday-panel {
+        position: relative;
+      }
+
+      .sunday-panel::before {
+        content: "";
+        position: absolute;
+        inset: -1rem auto auto -1rem;
+        width: 8rem;
+        height: 8rem;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 68%);
+        pointer-events: none;
+      }
+
+      .sunday-chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .sunday-chip {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(16px);
+        border-radius: 999px;
+        padding: 0.72rem 0.95rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .sunday-step {
+        position: relative;
+        display: grid;
+        grid-template-columns: 5.5rem minmax(0, 1fr);
+        gap: 1rem;
+        align-items: start;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(18px);
+        border-radius: 1.5rem;
+        padding: 1.1rem 1.15rem 1.2rem;
+        box-shadow: 0 18px 40px rgba(37, 24, 54, 0.12);
+      }
+
+      .sunday-step-time {
+        line-height: 0.88;
+      }
+
+      .sunday-step::after {
+        content: "";
+        position: absolute;
+        inset: auto 1.15rem 0.7rem 1.15rem;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+        opacity: 0.55;
+      }
+
+      .sunday-step:last-child::after {
+        display: none;
       }
 
       [data-load] {
@@ -991,6 +1054,62 @@
           padding: 1rem 1rem 1.25rem;
         }
 
+        .timeline-glow::before {
+          left: -0.9rem;
+        }
+
+        .sunday-spotlight .editorial-gradient {
+          padding-top: 5.5rem;
+          padding-bottom: 5.5rem;
+        }
+
+        .sunday-card {
+          aspect-ratio: 1 / 1.14;
+          border-radius: 1.65rem;
+        }
+
+        .sunday-panel {
+          margin-top: -4rem;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 1.7rem;
+          background: rgba(72, 58, 85, 0.28);
+          backdrop-filter: blur(18px);
+          padding: 1.35rem 1.2rem 0.15rem;
+          box-shadow: 0 26px 54px rgba(45, 36, 52, 0.18);
+        }
+
+        .sunday-panel h2 {
+          font-size: clamp(2.8rem, 13vw, 4.4rem) !important;
+          line-height: 0.92;
+        }
+
+        .sunday-chip-row {
+          gap: 0.55rem;
+        }
+
+        .sunday-chip {
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+          padding: 0.72rem 0.85rem;
+          letter-spacing: 0.14em;
+        }
+
+        .sunday-step {
+          grid-template-columns: 4.2rem minmax(0, 1fr);
+          gap: 0.8rem;
+          padding: 0.95rem 0.95rem 1rem;
+          border-radius: 1.25rem;
+        }
+
+        .sunday-step-time {
+          font-size: 2rem !important;
+        }
+
+        .sunday-step h4 {
+          font-size: 1.45rem !important;
+        }
+
         .mobile-week-strip {
           display: flex;
           gap: 0.9rem;
@@ -1274,7 +1393,7 @@
               <img
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 data-alt="luxury cancun resort pool area with white cabanas and palm trees overlooking the turquoise ocean"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8yVQXGTsArwIksmmQJLshXhNNNRoLsc9qB87qVfoEedhtDWESOJBvFKFzbZasH3ljhX7mvoFq7pTto-7c7KM56Ei-MiAJN8P-s4qk8pTah9Rr71uvlxRkGxje0usZCXkkgYNc1LtdMA8eZXjeHPvF8xABCy_isut3VBRKBI5zyyGi8OhftI7bNwa5AO9oK1itm_WS00ASgjKYIU-gzYLcojK6Poj7Mx3ROK3H5uM7XdprN3L7o857JIwhb46Vpi3_9G7tsgjTtLIo"
+                src="./assets/resort-day.jpg"
               />
               <div class="absolute inset-0 bg-primary/20 transition-colors duration-500 group-hover:bg-primary/0"></div>
             </div>
@@ -1417,7 +1536,7 @@
               <img
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 data-alt="Luxury white catamaran sailing on bright turquoise water"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbFejED-5DyLo5WfWdYLUvP2Cw1jHSSQeYR4rP7fG_iOwjn1w_NNKTvJ_zR5XevyBN4rdgqEjYMVGrpoedX9ftJ6IwfK9q2SYX9-Uu_cDLoHZ3Evge950ypxcFGZe9aDZIo4dEfJ-LG-_jpTiJI-GBV2Z5NW1mScCsJsKQs2zRWNpISWv0yv01_BPnZEQe0RrpI8itlCQY15PB9u5BfuVMO-NuA1crZ3BtojTGsfaa5XIhAxZyuFVxD0thb922jgMfZe1B82ipw9xY"
+                src="./assets/yacht-day.jpg"
               />
             </div>
           </div>
@@ -1459,34 +1578,39 @@
               <img
                 class="h-full w-full object-cover"
                 data-alt="spectacular beachfront wedding ceremony setup with white chairs and a floral arch against the bright blue cancun sea"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMO8ApJg7XhG80V9dRgl2Oh5ApmIQjR3LjIMzFZ6yxd3P4RrhK_i-dfSgou0WEt4BSdUExyz_lN68K0YqGFAqRC2vZBluKk0MmIaHMQKyNP6IPnqm-FFfVEHW4aGycdjN7zMcFaABFTcIejxVk5AROxvfdd8yoWHVXHAyojJZKWeUHGHN0oGo1lCGgtqO9h_6zHuzKiK4OyvW6X5Lw6fmM1CR7qjeR74vZvDwokxz0nQmMSftNAsWuMMV4B8xlzjRMnWGixuAdYc7P"
+                src="./assets/wedding-day.jpg"
               />
             </div>
             <div class="absolute -bottom-10 -right-10 h-64 w-64 rounded-full bg-secondary-container/30 blur-3xl"></div>
           </div>
-          <div data-reveal="right">
+          <div class="sunday-panel" data-reveal="right">
             <span class="mb-6 block font-label uppercase tracking-[0.4em] text-secondary-fixed">The Main Event</span>
             <h2 class="mb-8 whitespace-nowrap font-headline text-5xl sm:text-6xl md:text-8xl">Sunday, June 28</h2>
             <p class="mb-12 font-headline text-2xl italic opacity-90">
               The day we’ve been waiting for. We can't wait to celebrate our forever with you.
             </p>
-            <div class="space-y-10">
-              <div class="hover-lift flex items-start gap-6 border-b border-white/10 pb-6" data-reveal="right" style="--reveal-delay: 0ms">
-                <span class="font-headline text-4xl opacity-50">05:30</span>
+            <div class="sunday-chip-row mb-8">
+              <span class="sunday-chip">Rooftop Ceremony</span>
+              <span class="sunday-chip">Sunset Break</span>
+              <span class="sunday-chip">Beach Reception</span>
+            </div>
+            <div class="space-y-4 md:space-y-5">
+              <div class="hover-lift sunday-step" data-reveal="right" style="--reveal-delay: 0ms">
+                <span class="sunday-step-time font-headline text-4xl opacity-60">05:30</span>
                 <div>
                   <h4 class="font-headline text-2xl">Rooftop Ceremony</h4>
                   <p class="mt-1 font-body opacity-80">5:30 PM - 6:00 PM at The Fives Beach Hotel &amp; Residences</p>
                 </div>
               </div>
-              <div class="hover-lift flex items-start gap-6 border-b border-white/10 pb-6" data-reveal="right" style="--reveal-delay: 100ms">
-                <span class="font-headline text-4xl opacity-50">06:00</span>
+              <div class="hover-lift sunday-step" data-reveal="right" style="--reveal-delay: 100ms">
+                <span class="sunday-step-time font-headline text-4xl opacity-60">06:00</span>
                 <div>
                   <h4 class="font-headline text-2xl">Drinks Nearby</h4>
                   <p class="mt-1 font-body opacity-80">Grab a drink at one of the nearby bars during the break before reception</p>
                 </div>
               </div>
-              <div class="hover-lift flex items-start gap-6 border-b border-white/10 pb-6" data-reveal="right" style="--reveal-delay: 200ms">
-                <span class="font-headline text-4xl opacity-50">07:00</span>
+              <div class="hover-lift sunday-step" data-reveal="right" style="--reveal-delay: 200ms">
+                <span class="sunday-step-time font-headline text-4xl opacity-60">07:00</span>
                 <div>
                   <h4 class="font-headline text-2xl">Beach Reception</h4>
                   <p class="mt-1 font-body opacity-80">Reception begins on the beach at The Fives Beach Hotel &amp; Residences</p>
@@ -1522,6 +1646,7 @@
               </button>
               <button
                 class="editorial-gradient shine-button w-full rounded-full px-16 py-5 font-label text-sm uppercase tracking-widest text-on-primary shadow-xl transition-all hover:scale-[1.02] active:scale-95 md:w-auto"
+                id="rsvp-submit"
                 type="submit"
               >
                 Confirm Attendance
@@ -1530,14 +1655,12 @@
 
             <div class="hidden rounded-xl border border-primary/20 bg-surface-container p-6 text-center" id="rsvp-success">
               <p class="font-headline text-2xl text-primary">Thank you.</p>
-              <p class="mt-2 text-on-surface-variant">
-                Your selections are filled out. We’re finishing the RSVP connection next.
-              </p>
+              <p class="mt-2 text-on-surface-variant" id="rsvp-success-message">Your RSVP has been sent.</p>
             </div>
 
             <div class="hidden rounded-xl border border-error/20 bg-error-container p-6 text-center" id="rsvp-error">
-              <p class="font-headline text-2xl text-on-error-container">Need a real name for each row.</p>
-              <p class="mt-2 text-on-surface">
+              <p class="font-headline text-2xl text-on-error-container" id="rsvp-error-title">Need a real name for each row.</p>
+              <p class="mt-2 text-on-surface" id="rsvp-error-message">
                 Fill in every attendee name you added, or remove the blank rows before submitting.
               </p>
             </div>
@@ -1701,6 +1824,7 @@
       </section>
     </template>
 
+    <script src="./config.js"></script>
     <script>
       requestAnimationFrame(() => {
         document.body.classList.add("page-loaded");
@@ -1726,11 +1850,16 @@
       const attendeeTemplate = document.getElementById("attendee-template");
       const addAttendeeButton = document.getElementById("add-attendee");
       const rsvpForm = document.getElementById("rsvp-form");
+      const submitButton = document.getElementById("rsvp-submit");
       const successState = document.getElementById("rsvp-success");
+      const successMessage = document.getElementById("rsvp-success-message");
       const errorState = document.getElementById("rsvp-error");
+      const errorTitle = document.getElementById("rsvp-error-title");
+      const errorMessage = document.getElementById("rsvp-error-message");
       const scrollProgress = document.getElementById("scroll-progress");
       const revealTargets = document.querySelectorAll("[data-reveal]");
       const parallaxCards = document.querySelectorAll("[data-parallax]");
+      const weddingConfig = window.WEDDING_CONFIG || {};
 
       const statusFields = {
         headline: document.getElementById("status-headline"),
@@ -1857,26 +1986,118 @@
         syncAttendeeFields();
       }
 
+      function hideRsvpStates() {
+        successState.classList.add("hidden");
+        errorState.classList.add("hidden");
+      }
+
+      function showRsvpError(title, message) {
+        hideRsvpStates();
+        errorTitle.textContent = title;
+        errorMessage.textContent = message;
+        errorState.classList.remove("hidden");
+        errorState.classList.add("success-pop");
+        errorState.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      function showRsvpSuccess(message) {
+        hideRsvpStates();
+        successMessage.textContent = message;
+        successState.classList.remove("hidden");
+        successState.classList.add("success-pop");
+        successState.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      function setSubmitBusy(isBusy) {
+        if (!submitButton) return;
+        submitButton.disabled = isBusy;
+        submitButton.classList.toggle("opacity-70", isBusy);
+        submitButton.classList.toggle("cursor-wait", isBusy);
+        submitButton.textContent = isBusy ? "Sending RSVP..." : "Confirm Attendance";
+      }
+
+      function collectAttendeeRows() {
+        return Array.from(attendeeList.querySelectorAll(".attendee-card")).map((card) => {
+          const name = card.querySelector('[data-field="name"]').value.trim();
+          const selectedEvents = Array.from(card.querySelectorAll("[data-event]:checked")).map((input) => input.dataset.event);
+
+          return {
+            attendee_name: name,
+            chichen_itza_selected: selectedEvents.includes("wed"),
+            dive_trip_selected: selectedEvents.includes("thu"),
+            yacht_day_selected: selectedEvents.includes("sat_day"),
+          };
+        });
+      }
+
+      async function submitRsvpRows(rows) {
+        const endpoint = typeof weddingConfig.rsvpEndpoint === "string" ? weddingConfig.rsvpEndpoint.trim() : "";
+
+        if (!endpoint) {
+          throw new Error("RSVP endpoint missing");
+        }
+
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify({
+            submitted_at: new Date().toISOString(),
+            source_page: window.location.href,
+            attendees: rows,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`RSVP submission failed with status ${response.status}`);
+        }
+
+        return response.json().catch(() => ({}));
+      }
+
+      function resetRsvpForm() {
+        attendeeList.innerHTML = "";
+        addAttendee();
+      }
+
       addAttendeeButton.addEventListener("click", addAttendee);
 
-      rsvpForm.addEventListener("submit", (event) => {
+      rsvpForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const nameInputs = attendeeList.querySelectorAll('[data-field="name"]');
         const blankInput = Array.from(nameInputs).find((input) => !input.value.trim());
 
         if (blankInput) {
-          successState.classList.add("hidden");
-          errorState.classList.remove("hidden");
-          errorState.classList.add("success-pop");
+          showRsvpError(
+            "Need a real name for each row.",
+            "Fill in every attendee name you added, or remove the blank rows before submitting."
+          );
           blankInput.focus();
           blankInput.scrollIntoView({ behavior: "smooth", block: "center" });
           return;
         }
 
-        errorState.classList.add("hidden");
-        successState.classList.remove("hidden");
-        successState.classList.add("success-pop");
-        successState.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        const rows = collectAttendeeRows();
+
+        try {
+          setSubmitBusy(true);
+          hideRsvpStates();
+          await submitRsvpRows(rows);
+          resetRsvpForm();
+          showRsvpSuccess("Your optional event selections are in. We can't wait to celebrate with you.");
+        } catch (error) {
+          const isMissingEndpoint = error instanceof Error && error.message === "RSVP endpoint missing";
+
+          showRsvpError(
+            isMissingEndpoint ? "RSVP needs one last setup step." : "RSVP didn't go through.",
+            isMissingEndpoint
+              ? "The form is ready, but the Google Sheets connection still needs to be added before it can save guest responses."
+              : "Please try again in a moment. If it still fails, text Katy or Drew and we’ll make sure you're added manually."
+          );
+        } finally {
+          setSubmitBusy(false);
+        }
       });
 
       addAttendee();
