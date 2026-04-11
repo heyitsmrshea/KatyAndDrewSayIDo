@@ -2000,6 +2000,7 @@
             <div class="hidden rounded-xl border border-primary/20 bg-surface-container p-6 text-center" id="rsvp-success">
               <p class="font-headline text-2xl text-primary">Thank you.</p>
               <p class="mt-2 text-on-surface-variant" id="rsvp-success-message">Your RSVP has been sent.</p>
+              <p class="mt-3 text-xs uppercase tracking-[0.18em] text-primary/70" id="rsvp-success-meta"></p>
             </div>
 
             <div class="hidden rounded-xl border border-error/20 bg-error-container p-6 text-center" id="rsvp-error">
@@ -2007,6 +2008,7 @@
               <p class="mt-2 text-on-surface" id="rsvp-error-message">
                 Fill in every attendee name you added, or remove the blank rows before submitting.
               </p>
+              <p class="mt-3 hidden break-words font-mono text-[11px] leading-relaxed text-on-surface/80" id="rsvp-error-debug"></p>
             </div>
           </form>
         </div>
@@ -2158,9 +2160,11 @@
       const submitButton = document.getElementById("rsvp-submit");
       const successState = document.getElementById("rsvp-success");
       const successMessage = document.getElementById("rsvp-success-message");
+      const successMeta = document.getElementById("rsvp-success-meta");
       const errorState = document.getElementById("rsvp-error");
       const errorTitle = document.getElementById("rsvp-error-title");
       const errorMessage = document.getElementById("rsvp-error-message");
+      const errorDebug = document.getElementById("rsvp-error-debug");
       const scrollProgress = document.getElementById("scroll-progress");
       const revealTargets = document.querySelectorAll("[data-reveal]");
       const parallaxCards = document.querySelectorAll("[data-parallax]");
@@ -2285,20 +2289,30 @@
       function hideRsvpStates() {
         successState.classList.add("hidden");
         errorState.classList.add("hidden");
+        successState.classList.remove("success-pop");
+        errorState.classList.remove("success-pop");
+        successMeta.textContent = "";
+        errorDebug.textContent = "";
+        errorDebug.classList.add("hidden");
       }
 
-      function showRsvpError(title, message) {
+      function showRsvpError(title, message, debugInfo = "") {
         hideRsvpStates();
         errorTitle.textContent = title;
         errorMessage.textContent = message;
+        if (debugInfo) {
+          errorDebug.textContent = debugInfo;
+          errorDebug.classList.remove("hidden");
+        }
         errorState.classList.remove("hidden");
         errorState.classList.add("success-pop");
         errorState.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
 
-      function showRsvpSuccess(message) {
+      function showRsvpSuccess(message, meta = "") {
         hideRsvpStates();
         successMessage.textContent = message;
+        successMeta.textContent = meta;
         successState.classList.remove("hidden");
         successState.classList.add("success-pop");
         successState.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -2306,10 +2320,18 @@
 
       function setSubmitBusy(isBusy) {
         if (!submitButton) return;
+        rsvpForm?.setAttribute("aria-busy", String(isBusy));
         submitButton.disabled = isBusy;
         submitButton.classList.toggle("opacity-70", isBusy);
         submitButton.classList.toggle("cursor-wait", isBusy);
         submitButton.textContent = isBusy ? "Sending RSVP..." : "Confirm Attendance";
+        addAttendeeButton.disabled = isBusy;
+        addAttendeeButton.classList.toggle("opacity-60", isBusy);
+        addAttendeeButton.classList.toggle("cursor-wait", isBusy);
+        attendeeList.classList.toggle("opacity-80", isBusy);
+        attendeeList.querySelectorAll("input, button").forEach((field) => {
+          field.disabled = isBusy;
+        });
       }
 
       function collectAttendeeRows() {
@@ -2333,23 +2355,47 @@
           throw new Error("RSVP endpoint missing");
         }
 
+        const requestId = `rsvp-${Date.now()}`;
         const response = await fetch(endpoint, {
           method: "POST",
           headers: {
             "Content-Type": "text/plain;charset=utf-8",
           },
           body: JSON.stringify({
+            request_id: requestId,
             submitted_at: new Date().toISOString(),
             source_page: window.location.href,
             attendees: rows,
           }),
         });
 
-        if (!response.ok) {
-          throw new Error(`RSVP submission failed with status ${response.status}`);
+        const rawResponse = await response.text();
+        let data = {};
+
+        try {
+          data = rawResponse ? JSON.parse(rawResponse) : {};
+        } catch (error) {
+          data = { raw_response: rawResponse };
         }
 
-        return response.json().catch(() => ({}));
+        if (!response.ok) {
+          const serverMessage = data && typeof data.message === "string" ? data.message : "";
+          throw new Error(serverMessage || `RSVP submission failed with status ${response.status}`);
+        }
+
+        if (data && typeof data === "object" && "ok" in data && data.ok === false) {
+          const serverMessage = typeof data.message === "string" && data.message.trim() ? data.message : "RSVP submission failed.";
+          throw new Error(serverMessage);
+        }
+
+        return {
+          requestId,
+          ...data,
+        };
+      }
+
+      function formatSavedCount(savedCount) {
+        return `${savedCount} ${savedCount === 1 ? "name" : "names"}`;
       }
 
       function resetRsvpForm() {
@@ -2379,17 +2425,37 @@
         try {
           setSubmitBusy(true);
           hideRsvpStates();
-          await submitRsvpRows(rows);
+          const result = await submitRsvpRows(rows);
+          const savedCount =
+            typeof result.rows_saved === "number" && Number.isFinite(result.rows_saved) ? result.rows_saved : rows.length;
+
           resetRsvpForm();
-          showRsvpSuccess("Your optional event selections are in. We can't wait to celebrate with you.");
+          showRsvpSuccess(
+            `Saved ${formatSavedCount(savedCount)} to the RSVP sheet.`,
+            result.requestId ? `Reference ${result.requestId}` : "Saved to Google Sheets"
+          );
         } catch (error) {
           const isMissingEndpoint = error instanceof Error && error.message === "RSVP endpoint missing";
+          const debugInfo = [
+            `time=${new Date().toISOString()}`,
+            `endpoint=${typeof weddingConfig.rsvpEndpoint === "string" && weddingConfig.rsvpEndpoint.trim() ? "configured" : "missing"}`,
+            `attendees=${rows.length}`,
+            `detail=${error instanceof Error ? error.message : "unknown error"}`,
+          ].join(" | ");
+
+          console.error("RSVP submission failed", {
+            error,
+            rows,
+            endpointConfigured: Boolean(typeof weddingConfig.rsvpEndpoint === "string" && weddingConfig.rsvpEndpoint.trim()),
+            submittedAt: new Date().toISOString(),
+          });
 
           showRsvpError(
             isMissingEndpoint ? "RSVP needs one last setup step." : "RSVP didn't go through.",
             isMissingEndpoint
               ? "The form is ready, but the Google Sheets connection still needs to be added before it can save guest responses."
-              : "Please try again in a moment. If it still fails, text Katy or Drew and we’ll make sure you're added manually."
+              : "Please try again in a moment. If it still fails, text Katy or Drew and we’ll make sure you're added manually.",
+            debugInfo
           );
         } finally {
           setSubmitBusy(false);
