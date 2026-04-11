@@ -580,6 +580,87 @@
         pointer-events: none;
       }
 
+      .hero-status-chip {
+        position: relative;
+        display: inline-flex;
+        max-width: min(100%, 28rem);
+        align-items: center;
+        gap: 0.9rem;
+        margin-top: 1.35rem;
+        padding: 0.95rem 1rem 0.95rem 1.05rem;
+        border-radius: 1.5rem;
+        background: rgba(255, 255, 255, 0.56);
+        border: 1px solid rgba(122, 144, 216, 0.12);
+        box-shadow: 0 18px 38px rgba(45, 36, 52, 0.08);
+        backdrop-filter: blur(16px);
+        overflow: hidden;
+      }
+
+      .hero-status-chip::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(135deg, rgba(197, 213, 255, 0.22), transparent 38%),
+          linear-gradient(315deg, rgba(255, 196, 177, 0.16), transparent 42%);
+        pointer-events: none;
+      }
+
+      .hero-status-chip::after {
+        content: "";
+        position: absolute;
+        inset: -140% auto -140% -18%;
+        width: 36%;
+        transform: rotate(18deg) translateX(-240%);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+        animation: button-sheen 4.4s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .hero-status-chip__body {
+        position: relative;
+        z-index: 1;
+        min-width: 0;
+        display: grid;
+        gap: 0.2rem;
+      }
+
+      .hero-status-chip__label {
+        font-size: 0.65rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #7a90d8;
+      }
+
+      .hero-status-chip__title {
+        font-size: 1rem;
+        line-height: 1.15;
+        color: #2d2434;
+      }
+
+      .hero-status-chip__meta {
+        font-size: 0.78rem;
+        color: #665c72;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .hero-status-chip__cta {
+        position: relative;
+        z-index: 1;
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #8aa6f6 0%, #b693eb 52%, #f4b7a1 100%);
+        color: white;
+        box-shadow: 0 12px 24px rgba(182, 147, 235, 0.22);
+      }
+
       .mobile-dock {
         display: none;
       }
@@ -861,6 +942,21 @@
           color: white;
           box-shadow: 0 10px 24px rgba(182, 147, 235, 0.22);
         }
+
+        .hero-status-chip {
+          width: 100%;
+          max-width: 100%;
+          padding: 0.85rem 0.9rem;
+          border-radius: 1.35rem;
+        }
+
+        .hero-status-chip__title {
+          font-size: 0.95rem;
+        }
+
+        .hero-status-chip__meta {
+          white-space: normal;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -961,6 +1057,16 @@
               >Find Us</a
             >
           </div>
+          <a class="hero-status-chip" href="#whereabouts" data-load style="--delay: 620ms">
+            <div class="hero-status-chip__body">
+              <span class="hero-status-chip__label live-pill">Where We Are</span>
+              <strong class="hero-status-chip__title" id="status-mini-title">At the resort pool</strong>
+              <span class="hero-status-chip__meta" id="status-mini-meta">Tap to see our live location note</span>
+            </div>
+            <span class="hero-status-chip__cta">
+              <span class="material-symbols-outlined">arrow_outward</span>
+            </span>
+          </a>
         </div>
         <div class="relative h-[600px] md:col-span-6 md:h-[800px]">
           <div class="absolute inset-0 translate-x-4 rotate-2 overflow-hidden rounded-xl shadow-2xl" data-load style="--delay: 320ms">
@@ -1485,6 +1591,8 @@
         next_copy: document.getElementById("status-next-copy"),
         note_title: document.getElementById("status-note-title"),
         note_copy: document.getElementById("status-note-copy"),
+        mini_title: document.getElementById("status-mini-title"),
+        mini_meta: document.getElementById("status-mini-meta"),
       };
 
       function updateScrollProgress() {
