@@ -699,6 +699,11 @@
         animation: live-ping 2.2s infinite;
       }
 
+      .live-pill--green::before {
+        background: #22c55e;
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.42);
+      }
+
       .status-card {
         position: relative;
         overflow: hidden;
@@ -729,11 +734,11 @@
 
       .hero-status-chip {
         position: relative;
-        display: inline-flex;
-        max-width: min(100%, 28rem);
+        display: flex;
+        width: 100%;
+        max-width: min(100%, 34rem);
         align-items: center;
         gap: 0.9rem;
-        margin-top: 1.35rem;
         padding: 0.95rem 1rem 0.95rem 1.05rem;
         border-radius: 1.5rem;
         background: rgba(242, 235, 246, 0.88);
@@ -788,9 +793,56 @@
       .hero-status-chip__meta {
         font-size: 0.78rem;
         color: #665c72;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+      }
+
+      .hero-live-cluster {
+        display: grid;
+        gap: 0.75rem;
+        width: 100%;
+        max-width: min(100%, 34rem);
+        margin-top: 1.35rem;
+      }
+
+      .hero-live-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+
+      .hero-live-badge {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.7rem;
+        padding: 0.9rem 0.95rem;
+        border-radius: 1.2rem;
+        background: rgba(248, 243, 250, 0.88);
+        border: 1px solid rgba(122, 144, 216, 0.12);
+        box-shadow: 0 10px 24px rgba(45, 36, 52, 0.05);
+        backdrop-filter: blur(14px);
+      }
+
+      .hero-live-badge .material-symbols-outlined {
+        font-size: 1.1rem;
+        color: #7a90d8;
+      }
+
+      .hero-live-badge__body {
+        display: grid;
+        gap: 0.15rem;
+        min-width: 0;
+      }
+
+      .hero-live-badge__label {
+        font-size: 0.64rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #8d82a0;
+      }
+
+      .hero-live-badge__value {
+        font-size: 0.88rem;
+        line-height: 1.3;
+        color: #3b3142;
       }
 
       .hero-status-chip__cta {
@@ -1206,6 +1258,10 @@
           border-radius: 1.35rem;
         }
 
+        .hero-live-grid {
+          grid-template-columns: 1fr;
+        }
+
         .hero-status-chip__title {
           font-size: 0.95rem;
         }
@@ -1252,16 +1308,11 @@
             href="#rsvp"
             >RSVP</a
           >
-          <a
-            class="font-headline text-lg tracking-wide text-tertiary opacity-80 transition-colors duration-300 hover:text-secondary"
-            href="#whereabouts"
-            >Where We Are</a
-          >
-          <a
-            class="font-headline text-lg tracking-wide text-tertiary opacity-80 transition-colors duration-300 hover:text-secondary"
-            href="#faq"
-            >FAQ</a
-          >
+            <a
+              class="font-headline text-lg tracking-wide text-tertiary opacity-80 transition-colors duration-300 hover:text-secondary"
+              href="#faq"
+              >FAQ</a
+            >
         </div>
         <a
           class="editorial-gradient hidden rounded-full px-8 py-3 font-label text-sm uppercase tracking-widest text-on-primary transition-transform duration-200 hover:scale-95 md:block"
@@ -1276,7 +1327,7 @@
         <div class="flex flex-col gap-4">
           <a class="font-headline text-lg text-primary" href="#itinerary">Itinerary</a>
           <a class="font-headline text-lg text-tertiary" href="#rsvp">RSVP</a>
-          <a class="font-headline text-lg text-tertiary" href="#whereabouts">Where We Are</a>
+          <a class="font-headline text-lg text-tertiary" href="#wedding-day">Wedding Day</a>
           <a class="font-headline text-lg text-tertiary" href="#faq">FAQ</a>
         </div>
       </div>
@@ -1309,20 +1360,38 @@
             >
             <a
               class="shine-button rounded-full bg-surface-container-high px-10 py-5 text-center font-label text-sm uppercase tracking-widest text-primary transition-colors hover:bg-surface-container-highest"
-              href="#whereabouts"
-              >Find Us</a
+              href="#wedding-day"
+              >Wedding Day</a
             >
           </div>
-          <a class="hero-status-chip" href="#whereabouts" data-load style="--delay: 620ms">
-            <div class="hero-status-chip__body">
-              <span class="hero-status-chip__label live-pill">Where We Are</span>
-              <strong class="hero-status-chip__title" id="status-mini-title">At the resort pool</strong>
-              <span class="hero-status-chip__meta" id="status-mini-meta">Tap to see our live location note</span>
+          <div class="hero-live-cluster" data-load style="--delay: 620ms">
+            <div class="hero-status-chip">
+              <div class="hero-status-chip__body">
+                <span class="hero-status-chip__label live-pill live-pill--green">Live Location</span>
+                <strong class="hero-status-chip__title" id="status-headline">At the resort pool</strong>
+                <span class="hero-status-chip__meta" id="status-updated">Updated during wedding week</span>
+              </div>
+              <span class="hero-status-chip__cta">
+                <span class="material-symbols-outlined">location_on</span>
+              </span>
             </div>
-            <span class="hero-status-chip__cta">
-              <span class="material-symbols-outlined">arrow_outward</span>
-            </span>
-          </a>
+            <div class="hero-live-grid">
+              <div class="hero-live-badge">
+                <span class="material-symbols-outlined">pin_drop</span>
+                <div class="hero-live-badge__body">
+                  <span class="hero-live-badge__label">Where</span>
+                  <strong class="hero-live-badge__value" id="status-where">The Fives Beach Hotel &amp; Residences</strong>
+                </div>
+              </div>
+              <div class="hero-live-badge">
+                <span class="material-symbols-outlined">schedule</span>
+                <div class="hero-live-badge__body">
+                  <span class="hero-live-badge__label">Next</span>
+                  <strong class="hero-live-badge__value" id="status-next-move">Dinner around 7:00 PM</strong>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="relative h-[600px] md:col-span-6 md:h-[800px]">
           <div class="hero-photo-main absolute inset-0 translate-x-4 rotate-2 overflow-hidden rounded-xl shadow-2xl" data-load style="--delay: 320ms">
@@ -1603,7 +1672,7 @@
       </div>
     </section>
 
-    <section class="relative py-0 sunday-spotlight">
+    <section class="relative py-0 sunday-spotlight" id="wedding-day">
       <div class="editorial-gradient py-32 text-on-primary md:py-48">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 px-8 md:grid-cols-2">
           <div class="relative" data-reveal="left">
@@ -1702,45 +1771,6 @@
       </div>
     </section>
 
-    <section class="bg-surface-container-high py-16 md:py-20" id="whereabouts">
-      <div class="mx-auto max-w-7xl px-8">
-        <div class="mx-auto mb-8 max-w-3xl text-center" data-reveal="zoom">
-          <span class="mb-4 block font-label uppercase tracking-[0.2em] text-primary">Live Status</span>
-          <h2 class="mb-4 font-headline text-5xl">Where is the Bride &amp; Groom?</h2>
-          <p class="text-on-surface-variant">A quick way to see where we are once the week gets going.</p>
-        </div>
-        <div class="flex justify-center">
-          <div class="w-full max-w-3xl" data-reveal="right">
-            <div class="status-orbit parallax-card relative h-[440px] w-full overflow-hidden rounded-xl shadow-2xl md:h-[460px]" data-parallax>
-              <div class="absolute inset-0 bg-primary/10"></div>
-              <div class="flex h-full w-full items-center justify-center bg-surface-container-highest p-8">
-                <div class="status-card w-full max-w-lg rounded-[2rem] bg-surface-container-low p-8 backdrop-blur-md">
-                  <p class="live-pill font-label text-xs uppercase tracking-[0.25em] text-primary">Live now</p>
-                  <h5 class="mt-4 font-headline text-4xl text-primary" id="status-headline">At the resort pool</h5>
-                  <p class="mt-4 text-lg text-on-surface-variant" id="status-subhead">Come say hi if you’re around.</p>
-
-                  <div class="mt-8 grid gap-4">
-                    <div class="rounded-2xl bg-surface px-5 py-4">
-                      <p class="font-label text-[11px] uppercase tracking-[0.22em] text-tertiary">Where</p>
-                      <p class="mt-2 text-base text-on-surface" id="status-where">The Fives Beach Hotel &amp; Residences</p>
-                    </div>
-                    <div class="rounded-2xl bg-surface px-5 py-4">
-                      <p class="font-label text-[11px] uppercase tracking-[0.22em] text-tertiary">Next Move</p>
-                      <p class="mt-2 text-base text-on-surface" id="status-next-move">Dinner around 7:00 PM</p>
-                    </div>
-                    <div class="rounded-2xl bg-surface px-5 py-4">
-                      <p class="font-label text-[11px] uppercase tracking-[0.22em] text-tertiary">Last Updated</p>
-                      <p class="mt-2 text-base text-on-surface" id="status-updated">Updated during wedding week</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="py-24 md:py-28" id="faq">
       <div class="mx-auto max-w-3xl px-8">
         <h2 class="mb-20 text-center font-headline text-5xl" data-reveal="zoom">Frequently Asked</h2>
@@ -1769,8 +1799,8 @@
           <div class="hover-lift group" data-reveal="right">
             <h4 class="mb-4 font-headline text-2xl text-primary">Where can we find Katy and Drew?</h4>
             <p class="leading-relaxed text-on-surface-variant">
-              Check the “Where is the Bride &amp; Groom?” section during the trip for quick location updates and our
-              next stop.
+              Check the live location cards near the top of the page during the trip for where we are and where we’re
+              heading next.
             </p>
           </div>
         </div>
@@ -1795,8 +1825,8 @@
         <div class="flex gap-8">
           <a
             class="font-label text-sm uppercase tracking-widest text-tertiary opacity-60 transition-opacity hover:opacity-100"
-            href="#whereabouts"
-            >Where We Are</a
+            href="#wedding-day"
+            >Wedding Day</a
           >
           <a
             class="font-label text-sm uppercase tracking-widest text-tertiary opacity-60 transition-opacity hover:opacity-100"
@@ -1812,7 +1842,7 @@
 
     <div class="mobile-dock md:hidden">
       <a href="#itinerary">Plan</a>
-      <a href="#whereabouts">Find Us</a>
+      <a href="#wedding-day">Wedding</a>
       <a class="mobile-dock__primary" href="#rsvp">RSVP</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -1896,18 +1926,9 @@
 
       const statusFields = {
         headline: document.getElementById("status-headline"),
-        subhead: document.getElementById("status-subhead"),
         where: document.getElementById("status-where"),
         next_move: document.getElementById("status-next-move"),
         updated: document.getElementById("status-updated"),
-        location_title: document.getElementById("status-location-title"),
-        location_copy: document.getElementById("status-location-copy"),
-        next_title: document.getElementById("status-next-title"),
-        next_copy: document.getElementById("status-next-copy"),
-        note_title: document.getElementById("status-note-title"),
-        note_copy: document.getElementById("status-note-copy"),
-        mini_title: document.getElementById("status-mini-title"),
-        mini_meta: document.getElementById("status-mini-meta"),
       };
 
       function updateScrollProgress() {
