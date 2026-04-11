@@ -252,6 +252,15 @@
         transition: transform 220ms ease;
       }
 
+      .hero-photo-main {
+        animation: hero-sway 12s ease-in-out infinite;
+        transform-origin: center center;
+      }
+
+      .hero-photo-secondary {
+        animation: hero-secondary-float 9s ease-in-out infinite;
+      }
+
       .floating-frame {
         animation: frame-float 8s ease-in-out infinite;
       }
@@ -400,6 +409,11 @@
       .hover-lift:hover.event-chip::after {
         transform: scaleX(1);
         opacity: 1;
+      }
+
+      .page-loaded .event-chip {
+        animation: chip-bob 7s ease-in-out infinite;
+        animation-delay: calc(var(--reveal-delay, 0ms) + 1200ms);
       }
 
       .form-card {
@@ -606,6 +620,17 @@
         pointer-events: none;
       }
 
+      .status-card::after {
+        content: "";
+        position: absolute;
+        inset: -140% auto -140% -24%;
+        width: 34%;
+        transform: rotate(18deg) translateX(-260%);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        animation: button-sheen 6.8s ease-in-out infinite;
+        pointer-events: none;
+      }
+
       .hero-status-chip {
         position: relative;
         display: inline-flex;
@@ -787,6 +812,26 @@
         }
       }
 
+      @keyframes hero-sway {
+        0%,
+        100% {
+          transform: scale(1.015) rotate(1.5deg) translate3d(0, 0, 0);
+        }
+        50% {
+          transform: scale(1.045) rotate(0deg) translate3d(-0.6rem, -0.85rem, 0);
+        }
+      }
+
+      @keyframes hero-secondary-float {
+        0%,
+        100% {
+          transform: rotate(-6deg) translate3d(0, 0, 0);
+        }
+        50% {
+          transform: rotate(-3deg) translate3d(0.35rem, -0.9rem, 0);
+        }
+      }
+
       @keyframes frame-float {
         0%,
         100% {
@@ -878,6 +923,16 @@
         }
       }
 
+      @keyframes chip-bob {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-0.35rem);
+        }
+      }
+
       @keyframes marquee-run {
         from {
           transform: translateX(0);
@@ -911,6 +966,29 @@
       @media (max-width: 768px) {
         body {
           padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+        }
+
+        nav .mx-auto,
+        section > .mx-auto {
+          padding-left: 1.25rem !important;
+          padding-right: 1.25rem !important;
+        }
+
+        .hero-title-glow {
+          font-size: clamp(3.55rem, 15vw, 5.5rem) !important;
+          line-height: 0.9;
+        }
+
+        .status-orbit {
+          height: 24rem !important;
+        }
+
+        .status-card {
+          padding: 1.5rem;
+        }
+
+        .attendee-card {
+          padding: 1rem 1rem 1.25rem;
         }
 
         .mobile-week-strip {
@@ -1095,11 +1173,18 @@
           </a>
         </div>
         <div class="relative h-[600px] md:col-span-6 md:h-[800px]">
-          <div class="absolute inset-0 translate-x-4 rotate-2 overflow-hidden rounded-xl shadow-2xl" data-load style="--delay: 320ms">
+          <div class="hero-photo-main absolute inset-0 translate-x-4 rotate-2 overflow-hidden rounded-xl shadow-2xl" data-load style="--delay: 320ms">
             <img
               class="h-full w-full object-cover saturate-[1.08] contrast-[1.04]"
               alt="Katy and Drew embracing in front of a bright blue mountain lake"
               src="./assets/katy-and-drew-hero-color.png"
+            />
+          </div>
+          <div class="hero-photo-secondary absolute top-12 -left-8 hidden h-64 w-48 -rotate-6 overflow-hidden rounded-xl border-4 border-surface shadow-xl md:block" data-load style="--delay: 520ms">
+            <img
+              class="h-full w-full object-cover"
+              alt="Katy and Drew kissing with fireworks behind them"
+              src="./assets/hero-secondary.jpg"
             />
           </div>
         </div>
@@ -1330,8 +1415,8 @@
             <div class="parallax-card relative aspect-[3/4] overflow-hidden rounded-xl shadow-xl" data-parallax>
               <img
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                data-alt="elegant long wooden dining table set for rehearsal dinner with white linens and ocean view at twilight"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGnSuRzOzrU2PniQbw8voPT71UzaqAcwRdKaL6YnYu7WCn3K-9d7un2sXh6kjYITQl7ZoYbYJA8Anv2fgBf9KWlK5dqAEpthAHPJk0kpuSXmh-RbdwN7f_DYjbvcvqigzrnQiaURpQ7TEtK3x9r3hKE9ciJcIQdJaWD7tFa_RDL4u5ghNXmRsDLnvKiCFbA9j0xMXysY3101M6RS8FNl_G3e-cOUIzIo02Vezb5Z-lX20cW04MMKct8JIsqKvMs4UXTwn1rAnM6Y6-"
+                data-alt="Luxury white catamaran sailing on bright turquoise water"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbFejED-5DyLo5WfWdYLUvP2Cw1jHSSQeYR4rP7fG_iOwjn1w_NNKTvJ_zR5XevyBN4rdgqEjYMVGrpoedX9ftJ6IwfK9q2SYX9-Uu_cDLoHZ3Evge950ypxcFGZe9aDZIo4dEfJ-LG-_jpTiJI-GBV2Z5NW1mScCsJsKQs2zRWNpISWv0yv01_BPnZEQe0RrpI8itlCQY15PB9u5BfuVMO-NuA1crZ3BtojTGsfaa5XIhAxZyuFVxD0thb922jgMfZe1B82ipw9xY"
               />
             </div>
           </div>
