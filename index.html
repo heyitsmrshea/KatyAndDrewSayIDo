@@ -547,6 +547,85 @@
         animation: success-pop 0.7s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      .rsvp-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 120;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 220ms ease;
+      }
+
+      .rsvp-modal.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .rsvp-modal__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(41, 30, 56, 0.34);
+        backdrop-filter: blur(12px);
+      }
+
+      .rsvp-modal__card {
+        position: relative;
+        width: min(100%, 30rem);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 1.75rem;
+        background:
+          linear-gradient(145deg, rgba(250, 244, 252, 0.96), rgba(239, 228, 246, 0.94)),
+          linear-gradient(135deg, rgba(138, 166, 246, 0.16), rgba(244, 183, 161, 0.16));
+        box-shadow: 0 30px 80px rgba(45, 36, 52, 0.24);
+        padding: 2rem 1.7rem 1.5rem;
+        text-align: center;
+      }
+
+      .rsvp-modal__glow {
+        position: absolute;
+        inset: auto auto -3.5rem 50%;
+        width: 11rem;
+        height: 6rem;
+        transform: translateX(-50%);
+        background: radial-gradient(circle, rgba(182, 147, 235, 0.3), rgba(182, 147, 235, 0));
+        pointer-events: none;
+      }
+
+      .rsvp-modal__icon {
+        display: inline-flex;
+        width: 4rem;
+        height: 4rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(138, 166, 246, 0.2), rgba(244, 183, 161, 0.28));
+        color: #6e69d6;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+      }
+
+      .rsvp-modal__close {
+        position: absolute;
+        top: 0.9rem;
+        right: 0.9rem;
+        display: inline-flex;
+        width: 2.5rem;
+        height: 2.5rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        border: 1px solid rgba(122, 144, 216, 0.16);
+        background: rgba(255, 255, 255, 0.7);
+        color: #6b6178;
+      }
+
       .progress-rail {
         position: fixed;
         top: 0;
@@ -1428,6 +1507,29 @@
           box-shadow: 0 8px 18px rgba(182, 147, 235, 0.18);
         }
 
+        .rsvp-modal {
+          padding: 1rem;
+        }
+
+        .rsvp-modal__card {
+          border-radius: 1.45rem;
+          padding: 1.7rem 1.2rem 1.25rem;
+        }
+
+        .rsvp-modal__icon {
+          width: 3.5rem;
+          height: 3.5rem;
+        }
+
+        .rsvp-modal__card h3 {
+          font-size: 2.35rem !important;
+        }
+
+        .rsvp-modal__card p {
+          font-size: 1rem !important;
+          line-height: 1.55;
+        }
+
         #rsvp {
           padding-top: 4rem;
           padding-bottom: 4rem;
@@ -1997,18 +2099,11 @@
               </button>
             </div>
 
-            <div class="hidden rounded-xl border border-primary/20 bg-surface-container p-6 text-center" id="rsvp-success">
-              <p class="font-headline text-2xl text-primary">Thank you.</p>
-              <p class="mt-2 text-on-surface-variant" id="rsvp-success-message">Your RSVP has been sent.</p>
-              <p class="mt-3 text-xs uppercase tracking-[0.18em] text-primary/70" id="rsvp-success-meta"></p>
-            </div>
-
             <div class="hidden rounded-xl border border-error/20 bg-error-container p-6 text-center" id="rsvp-error">
               <p class="font-headline text-2xl text-on-error-container" id="rsvp-error-title">Need a real name for each row.</p>
               <p class="mt-2 text-on-surface" id="rsvp-error-message">
                 Fill in every attendee name you added, or remove the blank rows before submitting.
               </p>
-              <p class="mt-3 hidden break-words font-mono text-[11px] leading-relaxed text-on-surface/80" id="rsvp-error-debug"></p>
             </div>
           </form>
         </div>
@@ -2091,6 +2186,30 @@
       <a href="#faq">FAQ</a>
     </div>
 
+    <div class="rsvp-modal hidden" id="rsvp-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rsvp-modal-title">
+      <div class="rsvp-modal__backdrop" data-rsvp-close></div>
+      <div class="rsvp-modal__card success-pop">
+        <button aria-label="Close RSVP confirmation" class="rsvp-modal__close" data-rsvp-close type="button">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="rsvp-modal__icon mx-auto mb-5">
+          <span class="material-symbols-outlined text-3xl">celebration</span>
+        </div>
+        <h3 class="font-headline text-4xl text-primary" id="rsvp-modal-title">Thank you.</h3>
+        <p class="mt-4 text-lg leading-relaxed text-on-surface-variant" id="rsvp-modal-message">
+          Your RSVP is in. We can't wait to celebrate with you in Cancun.
+        </p>
+        <button
+          class="editorial-gradient shine-button mt-8 inline-flex items-center justify-center rounded-full px-8 py-3 font-label text-xs uppercase tracking-[0.18em] text-on-primary"
+          data-rsvp-close
+          type="button"
+        >
+          Back to the site
+        </button>
+        <div class="rsvp-modal__glow"></div>
+      </div>
+    </div>
+
     <template id="attendee-template">
       <section class="attendee-card space-y-8 rounded-xl border-b border-outline-variant/20 bg-surface-container p-6 pb-8">
         <div class="flex items-center justify-between gap-4">
@@ -2158,13 +2277,11 @@
       const addAttendeeButton = document.getElementById("add-attendee");
       const rsvpForm = document.getElementById("rsvp-form");
       const submitButton = document.getElementById("rsvp-submit");
-      const successState = document.getElementById("rsvp-success");
-      const successMessage = document.getElementById("rsvp-success-message");
-      const successMeta = document.getElementById("rsvp-success-meta");
       const errorState = document.getElementById("rsvp-error");
       const errorTitle = document.getElementById("rsvp-error-title");
       const errorMessage = document.getElementById("rsvp-error-message");
-      const errorDebug = document.getElementById("rsvp-error-debug");
+      const rsvpModal = document.getElementById("rsvp-modal");
+      const rsvpModalMessage = document.getElementById("rsvp-modal-message");
       const scrollProgress = document.getElementById("scroll-progress");
       const revealTargets = document.querySelectorAll("[data-reveal]");
       const parallaxCards = document.querySelectorAll("[data-parallax]");
@@ -2287,35 +2404,45 @@
       }
 
       function hideRsvpStates() {
-        successState.classList.add("hidden");
         errorState.classList.add("hidden");
-        successState.classList.remove("success-pop");
         errorState.classList.remove("success-pop");
-        successMeta.textContent = "";
-        errorDebug.textContent = "";
-        errorDebug.classList.add("hidden");
       }
 
-      function showRsvpError(title, message, debugInfo = "") {
+      function openRsvpModal(message) {
+        if (!rsvpModal || !rsvpModalMessage) return;
+        rsvpModalMessage.textContent = message;
+        rsvpModal.classList.remove("hidden");
+        requestAnimationFrame(() => {
+          rsvpModal.classList.add("is-open");
+        });
+        rsvpModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+      }
+
+      function closeRsvpModal() {
+        if (!rsvpModal) return;
+        rsvpModal.classList.remove("is-open");
+        rsvpModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+        window.setTimeout(() => {
+          if (rsvpModal.getAttribute("aria-hidden") === "true") {
+            rsvpModal.classList.add("hidden");
+          }
+        }, 220);
+      }
+
+      function showRsvpError(title, message) {
         hideRsvpStates();
         errorTitle.textContent = title;
         errorMessage.textContent = message;
-        if (debugInfo) {
-          errorDebug.textContent = debugInfo;
-          errorDebug.classList.remove("hidden");
-        }
         errorState.classList.remove("hidden");
         errorState.classList.add("success-pop");
         errorState.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
 
-      function showRsvpSuccess(message, meta = "") {
+      function showRsvpSuccess(message) {
         hideRsvpStates();
-        successMessage.textContent = message;
-        successMeta.textContent = meta;
-        successState.classList.remove("hidden");
-        successState.classList.add("success-pop");
-        successState.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        openRsvpModal(message);
       }
 
       function setSubmitBusy(isBusy) {
@@ -2394,16 +2521,20 @@
         };
       }
 
-      function formatSavedCount(savedCount) {
-        return `${savedCount} ${savedCount === 1 ? "name" : "names"}`;
-      }
-
       function resetRsvpForm() {
         attendeeList.innerHTML = "";
         addAttendee();
       }
 
       addAttendeeButton.addEventListener("click", addAttendee);
+      rsvpModal?.querySelectorAll("[data-rsvp-close]").forEach((button) => {
+        button.addEventListener("click", closeRsvpModal);
+      });
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeRsvpModal();
+        }
+      });
 
       rsvpForm.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -2430,18 +2561,14 @@
             typeof result.rows_saved === "number" && Number.isFinite(result.rows_saved) ? result.rows_saved : rows.length;
 
           resetRsvpForm();
-          showRsvpSuccess(
-            `Saved ${formatSavedCount(savedCount)} to the RSVP sheet.`,
-            result.requestId ? `Reference ${result.requestId}` : "Saved to Google Sheets"
-          );
+          console.info("RSVP saved", {
+            savedCount,
+            requestId: result.requestId || null,
+            response: result,
+          });
+          showRsvpSuccess("Your RSVP is in. We can't wait to celebrate with you in Cancun.");
         } catch (error) {
           const isMissingEndpoint = error instanceof Error && error.message === "RSVP endpoint missing";
-          const debugInfo = [
-            `time=${new Date().toISOString()}`,
-            `endpoint=${typeof weddingConfig.rsvpEndpoint === "string" && weddingConfig.rsvpEndpoint.trim() ? "configured" : "missing"}`,
-            `attendees=${rows.length}`,
-            `detail=${error instanceof Error ? error.message : "unknown error"}`,
-          ].join(" | ");
 
           console.error("RSVP submission failed", {
             error,
@@ -2454,8 +2581,7 @@
             isMissingEndpoint ? "RSVP needs one last setup step." : "RSVP didn't go through.",
             isMissingEndpoint
               ? "The form is ready, but the Google Sheets connection still needs to be added before it can save guest responses."
-              : "Please try again in a moment. If it still fails, text Katy or Drew and we’ll make sure you're added manually.",
-            debugInfo
+              : "Please try again in a moment. If it still fails, text Katy or Drew and we’ll make sure you're added manually."
           );
         } finally {
           setSubmitBusy(false);
