@@ -1337,6 +1337,14 @@ main {
 }
 .section.is-in h2 { background-position: 0 0; }
 
+/* Latenight is dark — needs a light-on-dark gradient instead */
+.section.latenight h2 {
+  background-image: linear-gradient(90deg,
+    oklch(95% 0.02 70) 0%,
+    oklch(95% 0.02 70) 50%,
+    oklch(70% 0.14 25) 100%);
+}
+
 /* Photo frames — slow ken-burns + lift on hover */
 .photo-frame { transition: transform 700ms var(--ease), box-shadow 700ms var(--ease); }
 .photo-frame:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 28px 64px rgba(20,10,5,0.14); }
