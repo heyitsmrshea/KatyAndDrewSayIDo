@@ -1555,17 +1555,14 @@
         font-family: "Bodoni Moda", serif;
         font-style: italic;
         font-weight: 500;
-        font-size: clamp(7rem, 14vw, 14rem);
-        line-height: 0.7;
         background: linear-gradient(135deg, #8aa6f6 0%, #b693eb 52%, #f4b7a1 100%);
         background-size: 200% 200%;
         animation: editorial-pan 12s ease infinite;
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        display: inline-block;
-        margin: -0.18em 0 -0.12em -0.05em;
-        padding-right: 0.05em;
+        display: inline;
+        padding: 0 0.05em;
       }
 
       .hero-text-link {
@@ -1785,10 +1782,9 @@
       <div class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-8 md:grid-cols-12">
         <div class="z-10 md:col-span-6">
           <span class="mb-4 block font-label uppercase tracking-[0.3em] text-secondary" data-load style="--delay: 180ms">Destination Cancun · June 2026</span>
-          <h1 class="hero-title-glow mb-6 font-headline text-6xl leading-[0.95] md:text-8xl" data-load style="--delay: 280ms">
-            <span class="block">Katy</span>
-            <span class="hero-amp" aria-hidden="true">&amp;</span>
-            <span class="block">Drew Say I Do</span>
+          <h1 class="hero-title-glow mb-6 font-headline text-6xl leading-[1] md:text-8xl" data-load style="--delay: 280ms">
+            <span class="block">Katy <span class="hero-amp" aria-hidden="true">&amp;</span> Drew</span>
+            <span class="block italic text-on-surface-variant">Say I Do</span>
           </h1>
           <p class="hero-subtitle mb-10 max-w-lg font-headline text-2xl italic text-on-surface-variant" data-load style="--delay: 380ms">
             Your guide to our Cancun wedding week.
@@ -1857,13 +1853,18 @@
 
     <section class="marquee-band" data-reveal="zoom">
       <div class="marquee-track" aria-hidden="true">
-        <span class="marquee-italic">Cancun &middot; June 2026 &middot; Sun, sea, vows</span>
-        <span class="marquee-italic" aria-hidden="true">·</span>
-        <span class="marquee-italic">Cancun &middot; June 2026 &middot; Sun, sea, vows</span>
-        <span class="marquee-italic" aria-hidden="true">·</span>
-        <span class="marquee-italic">Cancun &middot; June 2026 &middot; Sun, sea, vows</span>
-        <span class="marquee-italic" aria-hidden="true">·</span>
-        <span class="marquee-italic">Cancun &middot; June 2026 &middot; Sun, sea, vows</span>
+        <span class="marquee-chip">Cancun week itinerary</span>
+        <span class="marquee-chip">Rooftop ceremony</span>
+        <span class="marquee-chip">Beach reception</span>
+        <span class="marquee-chip">Yacht day</span>
+        <span class="marquee-chip">Churro cart</span>
+        <span class="marquee-chip">Live couple status</span>
+        <span class="marquee-chip">Cancun week itinerary</span>
+        <span class="marquee-chip">Rooftop ceremony</span>
+        <span class="marquee-chip">Beach reception</span>
+        <span class="marquee-chip">Yacht day</span>
+        <span class="marquee-chip">Churro cart</span>
+        <span class="marquee-chip">Live couple status</span>
       </div>
     </section>
 
