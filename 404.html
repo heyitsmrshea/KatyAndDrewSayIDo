@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Katy &amp; Drew</title>
+    <style>
+      body { font-family: system-ui, -apple-system, sans-serif; padding: 4rem 1.5rem; text-align: center; color: #333; }
+      a { color: #b08a5b; }
+    </style>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var lower = path.toLowerCase();
+        var redirects = {
+          '/ourstory': '/OurStory/',
+          '/ourstory/': '/OurStory/',
+          '/by-the-numbers': '/by-the-numbers/'
+        };
+        if (redirects[lower]) {
+          window.location.replace(redirects[lower] + window.location.search + window.location.hash);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <h1>Page not found</h1>
+    <p><a href="/">Return home</a> or visit <a href="/OurStory/">Our Story</a>.</p>
+  </body>
+</html>

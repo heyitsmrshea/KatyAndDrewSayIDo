@@ -1,2 +1,5 @@
 by-the-numbers/
 .DS_Store
+.playwright-mcp/
+*.png
+!assets/**/*.png
