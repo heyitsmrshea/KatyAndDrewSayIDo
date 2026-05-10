@@ -373,6 +373,201 @@ main {
   margin-top: 1.5rem;
 }
 
+/* New streak headline architecture — fraction + ticks */
+.streak-lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 0.9rem + 1.6vw, 2.4rem);
+  color: var(--color-ink);
+  max-width: 22ch;
+  margin: 0 auto 2.4rem;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.streak-lede em {
+  color: var(--color-accent);
+  font-style: italic;
+}
+.streak-fraction {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  position: relative;
+}
+.streak-fraction .num-top {
+  font-size: clamp(7rem, 2rem + 22vw, 22rem);
+  color: var(--color-ink);
+  font-feature-settings: "tnum", "lnum", "ss01";
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.streak-fraction .slash {
+  font-size: clamp(4rem, 1rem + 14vw, 14rem);
+  color: var(--color-accent);
+  font-style: italic;
+  font-weight: 300;
+  margin: 0 -0.05em 0 -0.04em;
+  transform: translateY(-0.04em);
+  display: inline-block;
+}
+.streak-fraction .num-bot {
+  font-size: clamp(3rem, 1rem + 10vw, 10rem);
+  color: var(--color-muted);
+  align-self: flex-end;
+  font-feature-settings: "tnum", "lnum", "ss01";
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.streak-fraction-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-top: 1rem;
+}
+.streak-fraction-label .accent { color: var(--color-accent); }
+
+/* Tick visualization — 433 little marks, 2 missing */
+.streak-ticks {
+  display: grid;
+  grid-template-columns: repeat(31, 1fr);
+  gap: 3px;
+  max-width: min(36rem, 88vw);
+  margin: 3rem auto 0;
+  padding: 0 0.5rem;
+}
+.streak-ticks .tick {
+  height: 14px;
+  background: linear-gradient(180deg, var(--color-ink), color-mix(in oklab, var(--color-ink) 70%, transparent));
+  opacity: 0.78;
+  border-radius: 1px;
+  transform-origin: center bottom;
+  transform: scaleY(0);
+  transition: transform 600ms var(--ease);
+}
+.streak-ticks .tick.miss {
+  background: transparent;
+  border: 1px dashed var(--color-accent);
+  opacity: 0.9;
+}
+.streak.is-in .streak-ticks .tick { transform: scaleY(1); }
+.streak-ticks .tick:nth-child(n) { transition-delay: calc(var(--i, 0) * 2ms + 800ms); }
+.streak-ticks-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.streak-ticks-legend .swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  vertical-align: middle;
+  margin-right: 0.4rem;
+  border-radius: 1px;
+}
+.streak-ticks-legend .swatch.solid { background: var(--color-ink); }
+.streak-ticks-legend .swatch.empty { border: 1px dashed var(--color-accent); }
+
+@media (max-width: 720px) {
+  .streak-ticks { grid-template-columns: repeat(22, 1fr); gap: 2px; }
+  .streak-ticks .tick { height: 11px; }
+  .streak-fraction-label { font-size: 0.62rem; letter-spacing: 0.14em; }
+}
+
+/* Editorial intro paragraph after hero */
+.story-intro {
+  padding: clamp(3rem, 2rem + 3vw, 6rem) 0 clamp(1rem, 0.5rem + 1vw, 2rem);
+}
+.story-intro .container-narrow {
+  max-width: min(36rem, 92vw);
+  margin: 0 auto;
+  text-align: center;
+}
+.story-intro .lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 0.9rem + 1.4vw, 2rem);
+  line-height: 1.4;
+  color: var(--color-ink);
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+.story-intro .lede .accent {
+  color: var(--color-accent);
+  font-style: italic;
+}
+.story-intro .glyph {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 2.4rem;
+  color: var(--color-accent);
+  margin-top: 1.6rem;
+  line-height: 1;
+  display: block;
+}
+
+/* Capstone § XI — The Math */
+.capstone {
+  text-align: center;
+  padding: clamp(5rem, 4rem + 5vw, 10rem) 0;
+}
+.capstone .eq {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(3.5rem, 1rem + 12vw, 9rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+.capstone .eq .arrow {
+  font-style: normal;
+  color: var(--color-accent);
+  font-weight: 300;
+  transform: translateY(-0.05em);
+}
+.capstone .eq .infinity {
+  color: var(--color-accent);
+  font-style: normal;
+  font-size: 1.15em;
+  transform: translateY(-0.04em);
+}
+.capstone .eq-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-top: 1.6rem;
+}
+.capstone .eq-caption {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.2rem, 0.8rem + 1vw, 1.6rem);
+  color: var(--color-ink);
+  max-width: 28ch;
+  margin: 1.6rem auto 0;
+  line-height: 1.4;
+}
+
 /* ---------- Section: Who Talks More ---------- */
 .who-grid {
   display: grid;
@@ -1569,7 +1764,7 @@ main {
     <div class="hero-grid">
       <div>
         <h1>Drew <span class="and">&amp;</span> Katy<br>by the Numbers</h1>
-        <p class="dek">A love letter, told in stats — 433 days, 65,539 messages, only ever quiet when we were together.</p>
+        <p class="dek">A love letter, told in stats. Every number on this page is the same story, told a different way.</p>
         <span class="daterange">February 28, 2025 &nbsp;·&nbsp; May 6, 2026</span>
       </div>
       <figure class="photo-frame photo-frame--portrait" data-photo="hero">
@@ -1582,20 +1777,45 @@ main {
 
 <hr class="rule">
 
+<!-- ========== STORY INTRO ========== -->
+<section class="section story-intro" aria-label="Introduction">
+  <div class="container-narrow">
+    <p class="lede">Numbers don't propose. But add them up over four hundred mornings and they tell you <span class="accent">everything.</span></p>
+    <span class="glyph" aria-hidden="true">&amp;</span>
+  </div>
+</section>
+
+<hr class="rule">
+
 <!-- ========== STREAK ========== -->
 <section class="section streak" aria-labelledby="s-streak">
   <div class="container">
     <div class="section-head" style="border:0; padding:0; margin-bottom:2rem; justify-items:center; grid-template-columns: 1fr;">
       <div class="left" style="align-items:center; text-align:center;">
         <span class="section-num">§ I · The Streak</span>
-        <h2 id="s-streak" style="text-align:center;">The headline stat</h2>
+        <h2 id="s-streak" style="text-align:center;">We texted every day. <em style="font-style:italic; color:var(--color-accent); font-weight:400;">Almost.</em></h2>
       </div>
     </div>
-    <span class="display-num countup" data-target="431" aria-label="431">0</span>
+
+    <p class="streak-lede">Out of every day we've been dating, we sent a message on <em>all but two.</em></p>
+
+    <div class="streak-fraction" role="img" aria-label="431 of 433 days">
+      <span class="num-top countup" data-target="431">0</span>
+      <span class="slash" aria-hidden="true">/</span>
+      <span class="num-bot countup" data-target="433">0</span>
+    </div>
+    <span class="streak-fraction-label"><span class="accent">days texted</span> &nbsp;·&nbsp; days dating</span>
+
     <svg class="underline" viewBox="0 0 300 18" aria-hidden="true" preserveAspectRatio="none">
       <path d="M 4 12 C 60 4, 120 16, 180 8 S 280 14, 296 9" />
     </svg>
-    <div style="font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.06em; color: var(--color-muted); margin-top: 1.2rem;">of <span class="num">433</span> days</div>
+
+    <div class="streak-ticks" id="streakTicks" aria-hidden="true"></div>
+    <div class="streak-ticks-legend">
+      <span><span class="swatch solid"></span>texted (431)</span>
+      <span><span class="swatch empty"></span>silent — together (2)</span>
+    </div>
+
     <p class="caption">The only two silent days were <em style="color:var(--color-accent); font-style:italic;">when we were together in person.</em></p>
     <p class="secondary"><data value="65539">65,539</data> messages &nbsp;·&nbsp; 151 / day average &nbsp;·&nbsp; current streak <strong style="color:var(--color-accent); font-weight:600;">123 days</strong> and counting</p>
   </div>
@@ -1941,6 +2161,27 @@ main {
 
 <hr class="rule">
 
+<!-- ========== CAPSTONE ========== -->
+<section class="section capstone" aria-labelledby="s-math">
+  <div class="container">
+    <div class="section-head" style="border:0; padding:0; margin-bottom:2rem; justify-items:center; grid-template-columns: 1fr;">
+      <div class="left" style="align-items:center; text-align:center;">
+        <span class="section-num">§ XI · The Math</span>
+        <h2 id="s-math" style="text-align:center;">Where the numbers go from here</h2>
+      </div>
+    </div>
+    <span class="eq" aria-label="433 days to infinity">
+      <span>433</span>
+      <span class="arrow" aria-hidden="true">→</span>
+      <span class="infinity" aria-hidden="true">∞</span>
+    </span>
+    <span class="eq-label">days&nbsp;dating &nbsp;·&nbsp; days&nbsp;ahead</span>
+    <p class="eq-caption">Every stat above is a draft. The next chapter is the one we're about to <em style="color:var(--color-accent); font-style:italic;">write together.</em></p>
+  </div>
+</section>
+
+<hr class="rule">
+
 <!-- ========== CLOSING ========== -->
 <section class="section closing" aria-labelledby="s-close">
   <div class="container-narrow">
@@ -2007,6 +2248,21 @@ main {
       html2 += '</div>';
     });
     weekRow.innerHTML = html2;
+  }
+
+  // ---------- Streak ticks (431 of 433) ----------
+  var ticksEl = document.getElementById('streakTicks');
+  if (ticksEl) {
+    var TOTAL = 433;
+    var missing = { 124: true, 287: true };
+    var frag = document.createDocumentFragment();
+    for (var ti = 0; ti < TOTAL; ti++) {
+      var span = document.createElement('span');
+      span.className = missing[ti] ? 'tick miss' : 'tick';
+      span.style.setProperty('--i', ti);
+      frag.appendChild(span);
+    }
+    ticksEl.appendChild(frag);
   }
 
   // ---------- Reveal on scroll ----------
