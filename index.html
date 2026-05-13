@@ -1914,33 +1914,33 @@
           </p>
         </div>
         <div class="mobile-week-strip grid grid-cols-2 gap-4 md:grid-cols-6">
-          <div class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 0ms">
+          <a href="#day-tue" class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center no-underline transition-transform hover:-translate-y-0.5" data-reveal="zoom" style="--reveal-delay: 0ms" aria-label="Jump to Tuesday — Resort Day">
             <span class="mb-2 font-label text-xs uppercase tracking-tighter text-tertiary">Tue</span>
             <span class="font-headline text-lg">Resort Day</span>
-          </div>
-          <div class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 70ms">
+          </a>
+          <a href="#day-wed" class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center no-underline transition-transform hover:-translate-y-0.5" data-reveal="zoom" style="--reveal-delay: 70ms" aria-label="Jump to Wednesday — Chichen Itza">
             <span class="mb-2 font-label text-xs uppercase tracking-tighter text-tertiary">Wed</span>
             <span class="font-headline text-lg">Chichen Itza</span>
-          </div>
-          <div class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 140ms">
+          </a>
+          <a href="#day-thu" class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center no-underline transition-transform hover:-translate-y-0.5" data-reveal="zoom" style="--reveal-delay: 140ms" aria-label="Jump to Thursday — Dive and Pool">
             <span class="mb-2 font-label text-xs uppercase tracking-tighter text-tertiary">Thu</span>
             <span class="font-headline text-lg">Dive + Pool</span>
-          </div>
-          <div class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 210ms">
+          </a>
+          <a href="#day-fri" class="event-chip hover-lift flex flex-col items-center rounded-xl bg-surface p-6 text-center no-underline transition-transform hover:-translate-y-0.5" data-reveal="zoom" style="--reveal-delay: 210ms" aria-label="Jump to Friday — Cenotes and Welcome Party">
             <span class="mb-2 font-label text-xs uppercase tracking-tighter text-tertiary">Fri</span>
             <span class="font-headline text-lg">Cenotes</span>
-          </div>
-          <div class="event-chip hover-lift flex flex-col items-center rounded-xl border-2 border-primary bg-surface p-6 text-center" data-reveal="zoom" style="--reveal-delay: 280ms">
+          </a>
+          <a href="#day-sat" class="event-chip hover-lift flex flex-col items-center rounded-xl border-2 border-primary bg-surface p-6 text-center no-underline transition-transform hover:-translate-y-0.5" data-reveal="zoom" style="--reveal-delay: 280ms" aria-label="Jump to Saturday — Yacht Day">
             <span class="mb-2 font-label text-xs uppercase tracking-tighter text-primary">Sat</span>
             <span class="font-headline text-lg">Yacht Day</span>
-          </div>
-          <div class="event-chip hover-lift relative flex flex-col items-center rounded-xl bg-surface p-6 text-center text-primary" data-reveal="zoom" style="--reveal-delay: 350ms">
+          </a>
+          <a href="#wedding-day" class="event-chip hover-lift relative flex flex-col items-center rounded-xl bg-surface p-6 text-center text-primary no-underline transition-transform hover:-translate-y-0.5" data-reveal="zoom" style="--reveal-delay: 350ms" aria-label="Jump to Sunday — Wedding Day">
             <svg class="sunday-circle-stroke" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
               <ellipse cx="50" cy="50" rx="44" ry="36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="5 4" transform="rotate(-4 50 50)" opacity="0.85" />
             </svg>
             <span class="mb-2 font-label text-xs uppercase tracking-tighter text-primary/70">Sun</span>
             <span class="font-headline italic text-lg">Wedding</span>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -1964,7 +1964,7 @@
           <span class="shrink-0 whitespace-nowrap rounded-full bg-surface-container px-3 py-1.5 font-label text-[10px] uppercase tracking-[0.14em] text-on-surface md:px-4 md:py-2 md:text-[11px] md:tracking-[0.18em]">Sun Wedding · Everyone</span>
         </div>
 
-        <div class="timeline-glow group mb-16 grid grid-cols-1 items-center gap-12 md:grid-cols-12" data-reveal="left">
+        <div id="day-tue" class="timeline-glow group mb-16 grid scroll-mt-24 grid-cols-1 items-center gap-12 md:grid-cols-12" data-reveal="left">
           <div class="md:col-span-4">
             <div class="editorial-photo parallax-card relative aspect-square overflow-hidden rounded-xl shadow-[0_18px_40px_rgba(28,28,23,0.08)]" data-parallax>
               <img
@@ -1989,7 +1989,7 @@
           </div>
         </div>
 
-        <div class="timeline-glow group mb-16 grid grid-cols-1 items-center gap-12 md:grid-cols-12" data-reveal="right">
+        <div id="day-wed" class="timeline-glow group mb-16 grid scroll-mt-24 grid-cols-1 items-center gap-12 md:grid-cols-12" data-reveal="right">
           <div class="order-2 border-r-2 border-surface-container-high py-4 pr-12 text-right md:order-1 md:col-span-8">
             <span class="font-label text-sm font-bold uppercase tracking-widest text-secondary">Wednesday, June 24</span>
             <h3 class="mb-4 mt-2 font-headline text-3xl">Chichen Itza</h3>
@@ -2013,7 +2013,7 @@
           </div>
         </div>
 
-        <div class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div id="day-thu" class="mb-16 grid scroll-mt-24 grid-cols-1 gap-12 md:grid-cols-2">
           <div class="hover-lift group relative rounded-xl bg-surface-container-low p-10 shadow-[0_16px_35px_rgba(28,28,23,0.05)]" data-reveal="left">
             <div class="editorial-photo mb-6 overflow-hidden rounded-xl shadow-[0_14px_30px_rgba(45,36,52,0.08)]">
               <img
@@ -2065,7 +2065,7 @@
           </div>
         </div>
 
-        <div class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-12" data-reveal="zoom">
+        <div id="day-fri" class="mb-16 grid scroll-mt-24 grid-cols-1 gap-12 md:grid-cols-12" data-reveal="zoom">
           <div class="md:col-span-5">
             <div class="editorial-photo parallax-card relative aspect-[4/5] overflow-hidden rounded-xl shadow-xl" data-parallax>
               <img
@@ -2115,7 +2115,7 @@
           </div>
         </div>
 
-        <div class="timeline-glow group mb-32 grid grid-cols-1 items-center gap-12 md:grid-cols-12" data-reveal="left">
+        <div id="day-sat" class="timeline-glow group mb-32 grid scroll-mt-24 grid-cols-1 items-center gap-12 md:grid-cols-12" data-reveal="left">
           <div class="md:col-span-4">
             <div class="editorial-photo parallax-card relative aspect-[3/4] overflow-hidden rounded-xl shadow-xl" data-parallax>
               <img
